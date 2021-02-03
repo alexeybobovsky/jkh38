@@ -1,0 +1,633 @@
+a.category {
+font-size: 11px;
+}
+
+#reklama {
+margin-left: 10px;
+}
+
+#reklama_r {
+margin-top: 20px;
+margin-left: 0px;
+}
+
+li.latestnews {
+margin-bottom: 5px;
+}
+
+#filter4{
+width: 300px;
+}
+
+#qqqq {
+height: 100px;
+}
+
+body {
+padding: 0;
+margin: 0;
+}
+
+
+#jc #comments h4 {
+font-size: 14px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+}
+
+a {
+color:#000000;
+}
+
+
+img {
+border: 0px;
+}
+
+#bann1 li {
+margin-left:-30px;
+list-style-type: none;
+padding-right: 10px;
+}
+#ogl {
+margin-top: 10px;
+margin-left:10px;
+font-size: 14px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+font-weight:bold;
+}
+
+#leftmenu2 #ogl {
+margin-top: 10px;
+margin-left:5px;
+font-size: 14px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+font-weight:bold;
+}
+
+
+#bann1 {
+border: 1px solid #999999;
+min-width: 191px;
+margin-left: 10px;
+margin-right: 10px;
+}
+
+
+
+#bann2 {
+border: 1px solid #999999;
+height:80px;
+margin-left: 10px;
+margin-right: 10px;
+margin-top:10px;
+margin-bottom:10px;
+}
+#toptext {
+font-size: 28px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+text-align:center;
+margin-top:15px;
+margin-left: 10px;
+color:#996633;
+}
+#toptext  a{
+font-size: 28px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+text-align:center;
+margin-left: 5px;
+color:#996633;
+font-weight:bold;
+text-decoration: none;
+}
+#toptext4 {
+font-size: 20px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+text-align:left;
+margin-left: 10px;
+color:#996633;
+ text-decoration: none;
+}
+#toptext4  a{
+font-size: 22px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+text-align:left;
+margin-left: 5px;
+color:#996633;
+font-weight:bold;
+ text-decoration: none;
+}
+
+
+
+#toptext2 {
+font-size: 16px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+text-align:center;
+margin-left: 10px;
+margin-top: 10px;
+margin-bottom:10px;
+color:black;
+font-weight:bold;
+}
+#toptext3 {
+margin-top: 10px;
+font-size: 14px;
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+text-align:left;
+margin-left: 10px;
+color:black;
+margin-right: 10px;
+}
+#search .button {
+height: 22px;
+width:47px;
+text-align:left;
+}
+#search {
+margin-top:0px;
+padding-top:0px;
+margin-left: 0px;
+margin-bottom: 10px;
+}
+#logo {
+margin-bottom:10px;
+}
+
+#line {
+border-bottom: 1px solid #999999;
+margin-left: 30px;
+margin-right: 30px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+#compmain table.contentpaneopen {
+margin-bottom: 10px;
+}
+
+div {
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight:normal;
+text-decoration: none;
+color:black;
+/*margin-bottom: 5px;*/
+
+}
+
+#login {
+padding: 5px 5px 5px 5px;
+margin: 5px 5px 5px 5px;
+background: #ffffff;
+text-align:left;
+border: 1px dotted #B5B5B5;
+}
+#ramkalogin {
+margin-left:10px;
+margin-top:10px;
+}
+
+
+#login a{
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight:normal;
+text-decoration: none;
+color:#006699;
+}
+
+#logo {
+margin-left:10px;
+}
+#contact {
+margin-left:30px;
+padding-left:10px;
+}
+/*
+#leftmenu li{
+list-style-type: none;
+padding-right: 10px;
+height: 20px;
+padding-left:5px;
+padding-top:1px;
+min-width: 155px;
+margin-bottom: 2px;
+margin-left:-40px;
+}
+*/
+#leftmenu2 li{
+list-style-type: none;
+padding-right: 10px;
+padding-left:5px;
+padding-top:1px;
+min-width: 155px;
+margin-bottom: 2px;
+margin-left:-40px;
+}
+
+
+#leftmenu li.item29 {
+background: #fbec5d;
+border:1px dotted #B5B5B5;
+padding-left:15px;
+
+}
+
+#leftmenu li.item29 a{
+font-weight:normal;
+}
+
+#leftmenu li.item63 {
+background: #fbcb5c;
+border:1px dotted grey;
+}
+#leftmenu li.item18 a{
+font-weight:normal;
+}
+
+#leftmenu li.item18 {
+background: #fbec5d;
+border:1px dotted #B5B5B5;
+padding-left:15px;
+}
+
+#leftmenu li.item30 a{
+font-weight:normal;
+}
+
+#leftmenu li.item30 {
+background: #fbcb5c;
+border:1px dotted #B5B5B5;
+padding-left:15px;
+}
+
+#leftmenu li.item56 a{
+font-weight:normal;
+}
+
+#leftmenu li.item56 {
+background: #fbec5d;
+border:1px dotted #B5B5B5;
+padding-left:15px;
+}
+
+#leftmenu li.item57 a{
+font-weight:normal;
+}
+
+#leftmenu li.item57 {
+background: #fbec5d;
+border:1px dotted #B5B5B5;
+padding-left:15px;
+}
+
+#leftmenu li.item58 a{
+font-weight:normal;
+}
+
+#leftmenu li.item58 {
+background: #fbcb5c;
+border:1px dotted #B5B5B5;
+padding-left:15px;
+}
+
+
+#leftmenu li.item28 {
+background: #fbcb5c;
+border:1px dotted grey;
+
+}
+#leftmenu li.item55 {
+background: #fbcb5c;
+border:1px dotted grey;
+}
+
+#leftmenu li.item59 {
+background: #fbcb5c;
+border:1px dotted grey;
+}
+
+#leftmenu li.item60 {
+background: #fbcb5c;
+border:1px dotted grey;
+}
+/*
+#leftmenu {
+margin-left: 10px;
+margin-bottom:0px;
+margin-top:0px;
+}
+
+#leftmenu span:hover{border-bottom: 1px dashed black;}
+#leftmenu span{
+		border: 0;
+		cursor:pointer; 
+		cursor:hand;  
+}
+#leftmenu a, #leftmenu span{
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+font-size: 14px;
+font-weight:bold;
+text-decoration: none;
+color:black;
+}
+
+*/
+#leftmenu2 {
+margin-left: 10px;
+padding: 5px 5px 3px 5px;
+margin-bottom:0px;
+margin-top:0px;
+border: 1px solid #999999;
+}
+
+
+#news a{
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight:normal;
+color:#4682b4;
+}
+
+#mess a{
+color:black;
+text-decoration: underline;
+}
+
+#mess .jclist {
+text-align:left;
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+}
+
+#mess {
+}
+
+#news {
+margin-bottom:10px;
+margin-left:-5px;
+}
+
+#zag {
+font-family:  Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+font-size: 12px;
+font-weight:bold;
+text-decoration: none;
+color:#006699;
+padding-bottom: 5px;
+padding-right:10px;
+
+}
+#zag1 {
+font-family:  Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+font-size: 15px;
+font-weight:bold;
+text-decoration: none;
+color:#993300;
+padding-bottom:5px;
+margin-bottom:10px;
+border-bottom: 1px solid #993300;
+width:100%;
+}
+
+#mess1 {
+width:95%;
+}
+
+.moduletable {
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+ 
+}
+
+.moduletable-menu {
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+ 
+}
+
+#comp table.contentpaneopen {
+background: #ffffff;
+border:1px dotted #B5B5B5;
+padding: 0px 0px 0px 0px;
+margin-bottom: 5px;
+width:100%;
+}
+
+.article_column column_separator {
+
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+}
+
+.article_column {
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+}
+
+
+
+
+.blog {
+width:100%;
+padding: 0px 0px 0px 0px;
+margin-top: -40px;
+
+
+}
+
+td.contentpaneopen {
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+}
+
+h2.contentheading {
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+}
+.tool-tip {
+margin-right: 5px;
+}
+#comp tr.sectiontableentry1{
+height: 25px;
+}
+
+#comp tr.sectiontableentry2{
+height: 25px;
+}
+
+#comp tr.sectiontableentry1 td{
+border-right: 10px solid white;
+}
+#comp tr.sectiontableentry2 td{
+border-right: 10px solid white;
+}
+
+
+#comp a.contentpagetitle {
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+font-size: 13px;
+color: #0000CC;
+
+}
+
+
+
+
+#comp {
+text-align:left;
+padding: 5px 5px 5px 5px;
+border: 1px solid #999999;
+margin-left:10px;
+margin-right:10px;
+
+}
+
+#comp .sectiontableheader {
+font-weight:bold;
+height: 30px;
+
+}
+#comp td.sectiontableheader {
+width: 20%;
+}
+#comp .contentpane a {
+font-family: Arial, Tahoma, Times New Roman, Helvetica, sans-serif;
+font-size: 12px;
+color: black;
+}
+
+#comp .contentpane {
+font-size: 12px;
+color:#996633;
+margin-top:0px;
+padding-top:0px;
+
+}
+
+#comp h1 {
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 20px;
+font-weight:normal;
+text-decoration: underline;
+color: #8B0000;
+
+padding-top:0px;
+margin-top:0px;
+}
+
+#comp h2 a{
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 20px;
+font-weight:normal;
+text-decoration: underline;
+color:#6B8E23;
+}
+
+#comp h4 a{
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 16px;
+font-weight:normal;
+text-decoration: underline;
+color:#6B8E23;
+}
+
+#comp .pageinfo a{
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 14px;
+font-weight:normal;
+text-decoration: underline;
+color:#104E8B;
+}
+
+#comp h2 {
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 20px;
+font-weight:normal;
+padding-top:0px;
+margin-top:0px;
+}
+
+
+#comp h3 {
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 14px;
+font-weight:normal;
+padding-top:0px;
+margin-top:0px;
+}
+#comments-form-link a{
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight:normal;
+text-decoration: underline;
+color:#104E8B;
+}
+.pagenav_next a{
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight:normal;
+text-decoration: underline;
+color:#104E8B;
+}
+.pagenav_next {
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight:normal;
+text-decoration: underline;
+color:#104E8B;
+}
+.pagination a{
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 15px;
+font-weight:normal;
+text-decoration: underline;
+color:#104E8B;
+}
+
+.pagination {
+font-family: Tahoma, Times New Roman, Arial, Helvetica, sans-serif;
+font-size: 15px;
+font-weight:normal;
+text-decoration: normal;
+color:#696969;
+}
+.pagination li {
+padding-left: 5px;
+}
+.pageinfo a{
+font-family: Tahoma, Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight:normal;
+text-decoration: underline;
+color: #006400;
+}
+.iteminfo a{
+font-family: Tahoma, Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight:normal;
+text-decoration: underline;
+color: #104E8B;
+}
+
+#way {
+margin-left:10px;
+
+}
+#mod_login_remember {
+margin-left: 0px;
+}
+
+.search {
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+}
+
+#comp .componentheading  {
+font-size: 15px;
+font-weight: bold;
+}
+
+.alriz {
+margin-top: 100px;
+}

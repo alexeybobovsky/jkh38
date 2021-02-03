@@ -1,0 +1,76 @@
+.ac_results {
+	font-family: "Palatino Linotype", "Times new roman", courier, serif;		
+	FONT-SIZE: 110%; 
+	z-index:100;
+	padding: 0px;
+	border: 1px solid WindowFrame;
+	background-color: Window;
+/*	background-color: #99CCFF;*/
+	overflow: hidden;
+/*	filter: alpha(opacity=85); /* IE 5.5+*/
+	-moz-opacity: 0.85; /* Mozilla 1.6 и ниже */
+	-khtml-opacity: 0.85; /* Konqueror 3.1, Safari 1.1 */
+	opacity: 0.85;	
+	}
+
+.ac_results ul {
+/*	filter: alpha(opacity=100); /* IE 5.5+*/
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results iframe {
+	display:none;/*sorry for IE5*/
+	display/**/:block;/*sorry for IE5*/
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+	filter:mask();
+	width:3000px;
+	height:3000px;
+}
+
+.ac_results li {
+	background-color: Window;
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+/*	font: menu;*/
+/*	font-size: 12px;*/
+	overflow: hidden;
+}
+
+.ac_loading {
+	background-color: grey;
+/*	background : Window url('./indicator.gif') right center no-repeat;*/
+}
+
+.ac_over {
+	background-color: Highlight;
+	background-color: infobackground;
+	color: black;
+}
+.ac_searched {
+	color: darkgreen;
+	text-decoration: underline;
+}
+.multitypeContaner{
+	width:100%;	
+}
+.multitypeContaner .findResult{
+	text-align:left;
+/*	border: 1px solid WindowFrame;*/
+	float: left;
+	}
+.multitypeContaner .findType{
+	text-align:right;
+	font-style: italic;
+/*	width:100%;	
+	border: 1px solid WindowFrame;*/
+	}

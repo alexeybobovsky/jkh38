@@ -1,0 +1,64 @@
+/***********************************************/
+/* HTML tag styles                             */
+/***********************************************/
+
+* { padding: 0px; margin: 0px; }
+
+body { font-family: Arial; font-size: 0.8em; padding: 0px; margin: 0px; background-color: #ffffff; }
+td, th { font-size: 1em; }
+
+a { color: #1088BE; }
+a:hover { text-decoration: none; }
+
+a img { border: 0px; }
+
+table { border-collapse: collapse; }
+
+h1 { color: #42505A; font-weight: normal; font-size: 2em; margin-bottom: 0.5em; cursor:hand; cursor:pointer; }
+h1:hover { text-decoration: underline; }
+h2 { color: #42505A; font-weight: normal; font-size: 1.5em; margin-bottom: 0.25em; }
+h2 a { color: #42505A; }
+h3 { color: #3f3f3f; }
+h5 { margin-bottom: 0.5em; background-color: #812A25; color: #fff; font-size: 0.9em; font-weight: bold; padding: 1px 4px; }
+h4 { margin-bottom: 0.5em; background-color: #fff; color: #606060; font-size: 0.9em; font-weight: bold; padding: 1px 4px; }
+
+div.body_container { margin: 3em;  vertical-align: top; }
+/* overrides decoration from previous rule for hovered links */
+.pip { display: none; white-space: nowrap; }
+span.taskcontrols img { vertical-align: top; z-index: 0;}
+span.taskcontrols2 img { margin-right: 4px; }
+
+table.project_title { width: 100%; margin-top: 1em; border-bottom: 1px solid #e0e0e0; }
+table.project_title td { color: #606060; padding: 0.15em 0.2em; font-size: 1.6em; font-family: Tahoma; font-weight: normal; background-color: #f0f0f0; }
+table.project_title td a { color: #606060; text-decoration: none; }
+table.project_title td a:hover { color: #505050; text-decoration: underline; }
+
+table.taskslist { width: 100%; margin-top: 1em; }
+table.taskslist th { width: 68%; text-align: left; font-weight: normal; vertical-align: top; padding: 3px 4px; padding-top: 6px; }
+table.taskslist th a { font-weight: bold; }
+table.taskslist th span { font-size: 1.2em; color: #606060; }
+table.taskslist th span:hover { text-decoration: underline; cursor:hand; cursor: pointer; }
+table.taskslist th span a { text-decoration: none; color: #606060; font-weight: normal; }
+table.taskslist td, 
+table.taskslist th { padding: 3px 4px; padding-top: 6px; border-bottom: 1px solid #EDEDED; }
+table.taskslist td { width: 16%; font-size: 0.85em; padding: 2px 10px; text-align: right; vertical-align: middle; padding-top: 2px; color: #909090; }
+table.taskslist tr th span {  cursor:hand; cursor: pointer; }
+table.taskslist tr.closed th a { font-weight: normal; color: #909090; }
+table.taskslist tr.heading td { padding: 0px; text-align: center; font-size: 0.75em; border-bottom: 0px; border: 1px solid #ededed; border-bottom: 1px solid #ffffff; }
+table.taskslist tr.heading td.createD { border-right: 0px; }
+table.taskslist tr.heading td.closedD { border-left: 0px; }
+table.taskslist td.project { vertical-align: middle; padding-top: 5px; }
+
+tr.hover { background-color: #f0f0f0; }
+.main {
+/*	vertical-align: top;*/
+	white-space: normal;
+	margin-top: 30px;
+	margin-left: 30px;
+}
+.main TABLE TD{
+/*	margin-bottom: 10px;
+	PADDING-BOTTOM: 0.3em; 	
+	PADDING-top: 0.3em; 	*/
+}
+

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>РКО 2.0</title>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" /-->
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+	<link rel="stylesheet" href="/gis2/src/style.css" type="text/css">
+	<!--link rel="stylesheet" href="src/jquery-ui.min.css" type="text/css"-->
+	<link rel="stylesheet" href="src/style.css" type="text/css">
+	<link rel="stylesheet" href="src/autoComlete.css" type="text/css" />
+	<!--link rel="stylesheet" href="src/jquery-ui.css"-->
+	<link rel="stylesheet" href="src/switchery.min.css" />
+	<link rel="stylesheet" href="src/leaflet-routing-machine.css" />
+	
+	<script src="inc/jquery/jquery.js"></script>
+	<!--script src="inc/jquery/jquery-ui.min.js"></script-->
+	<!--script src="inc/jquery/jquery-ui.js"></script-->
+	<script src="inc/switchery.min.js"></script>
+	
+	<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+	<script src="http://api-maps.yandex.ru/2.0/?load=package.map&lang=ru-RU" type="text/javascript"></script>	
+	<script src="inc/leaflet/leaflet-plugins-1.9.0/layer/tile/Yandex.js"></script>
+	<script src="inc/leaflet/leaflet-plugins-1.9.0/layer/tile/Bing.js"></script>
+	<!--script src="inc/leaflet/leaflet.sector-master/leaflet.sector.js"></script-->
+	<script src="inc/leaflet/leaflet-2gis-master/dgis.js"></script>
+	<script src="inc/leaflet/leaflet-routing-machine.min.js"></script>
+	<script src="http://maps.api.2gis.ru/1.0" type="text/javascript"></script>
+    <!--script src="inc/leaflet/TileLayer.EsriRest.js"></script-->
+	
+	<!--script src="inc/leaflet/L.GeoSearch-master/src/js/l.control.geosearch.js"></script>
+	<!--script src="inc/leaflet/L.GeoSearch-master/src/js/l.geosearch.provider.openstreetmap.js"></script>
+	<script src="inc/leaflet/L.GeoSearch-master/src/js/l.geosearch.provider.google.js"></script-->
+	
+	<script src="inc/jquery/jquery.autocomplete.js" type="text/javascript"></script>	
+	<script src="inc/JS/searchFast.js" type="text/javascript"></script>
+	
+	<link rel="stylesheet" href="inc/leaflet/L.GeoSearch-master/src/css/l.geosearch.css" />	
+	
+	<!--script src="area.js" type="text/javascript"></script-->
+	<!--script src="sample.js" type="text/javascript"></script-->
+	<script src="reg.js" type="text/javascript"></script>
+	<script src="naspu.js" type="text/javascript"></script>
+
+	<script src="inc/JS/gis.js" type="text/javascript"></script>		
+	<script src="inc/JS/service.js" type="text/javascript"></script>		
+	<script src="inc/JS/userInterface.js" type="text/javascript"></script>		
+	<!--script src="bsList.js" type="text/javascript"></script-->		
+	<script>
+var titleString = 'Районы Иркутской области (демо режим)';
+var UI = new userInterface();   	
+var ROUT =	new Routine();   	
+var GIS = 	new gisRoutine();
+//var coords = []; 		
+var locationList = [];
+var BSIndexOver;
+
+var distr;
+var settlements = []; 
+/*var timeload = 0;
+var timerLoad = setInterval(function() { console.log(timeload); timeload += 100; }, 100);*/
+/*
+	var  styleSectorBusy = {
+											"color": "#0078ff",
+											"fillColor": "#ff0000",											
+											"weight": 1,
+											"fillOpacity": 0.2,
+											"opacity": 0.5
+										}; 
+	var  styleSectorEmpty = {
+											"color": "#0078ff",
+											"fillColor": "#00ff00",											
+											"weight": 1,
+											"fillOpacity": 0.2,
+											"opacity": 0.5
+										}; 
+*/										
+
+$(document).ready(function(){
+	UI.setSize();   
+	UI.pleaseWait();
+	$('#mapid').css({'height' : UI.documentHeight-($('#topContaner').height()+35)});				
+	$('#mapid').css({'width' : UI.documentWidth});
+//	$('#accList').accordion( {fillSpace:true} );
+	$('#show_accList').bind("click", 	function () {/*loadReg();*/ UI.menuToggle(); } 	);	
+	$('#titleBar').text(titleString);
+	$('#menuListContaner').css({'display' : 'none'});
+	$('#titlePoly').bind("mouseover", 	function () {reg[BSIndexOver].poly.setStyle({'fillOpacity' : 0.6}); $(this).css({'display' : 'block'})});
+	$('#titlePoly').bind("mouseout", 	function () {reg[BSIndexOver].poly.setStyle({'fillOpacity' : 0.2});  $(this).css({'display' : 'none'})});
+	$('#titlePoly').bind("click", 	function () {reg[BSIndexOver].poly.openPopup();  $(this).css({'display' : 'none'})});
+	$('#switchDistr').bind("change", 	function () {GIS.toggleRegAll(reg)});
+	
+//	parseBSList();
+//	mymap.setView([52.280, 104.267], 13);
+	GIS.loadReg(reg);	
+	settlements = GIS.parseGISFlow(geoMun, 'settlements');
+	$('#cityList').html(GIS.genTextBigList(settlements));
+
+	var switchCity = new Switchery(document.querySelector('#switchCity'), { size: 'small'});		
+	$('#switchCity').bind("change", 	function () {GIS.togglePolyArr(settlements)});
+	$('#toggleSearchBar').bind("click", 	function () {UI.toggleSearchBar('searchCityContaner')});
+	
+//	$('.accContent').css('max-height',  $('#mapid').height()-50);
+	UI.setPanel();   
+	$('.switchery').bind("click", 	function (event) {event.stopPropagation();/* console.log(event.currentTarget);*/});
+	initSearch('searchCity');	
+/*	var elem = document.querySelector('#switchDistr');*/
+	});
+//	$(window).bind("resize", function() {UI.setSize()});
+	$(window).bind("load", 	function() {UI.pleaseWait()});
+
+
+
+
+	</script>
+</head>
+<body>
+<div id="waitBox" style="display:none;"><img id="waitImg" src="src/design/img/blueBars.gif" border="0" alt="" /></div>
+<div id="topToolBarContaner">
+<div id="topToolBar">
+	<div id='userAuth'>
+		<span class='' title="Показать границы районов" id="show_accList"> Объекты </span>
+	</div>
+	<div id='titleBar'>
+		
+		<!--span>
+		Поиск по сайту
+		</span>
+		<input type = 'text' id="searchFast" name="searchFast" class="input_fast_search" value="Введите поисковый запрос..."  onFocus='this.value=""; ' onBlur='clearSearchbarF()'/>  
+		<span id='resMessageF'></span--> 
+
+	</div>
+	<div id='compare' >
+	</div>
+	<div id='moveUp'>
+	 <span title='вверх' id='up' onClick='$(window).scrollTop(0);'>&uarr;</span>
+	</div>
+</div>	
+</div>	
+	<div id="titlePoly" >
+	</div>
+	<div id="mapid" style=''>
+	</div>
+	<div id="menuListContaner">
+		<div id='accList'>
+			<div class='accHeader  hEnbl' id="searchHeader"> 
+				<div class='lbl'><span class="accHIcon accHIconEnbl"></span> Населённый пункт</div>
+				<div class='switchContaner' style='height:22px;'><div id='toggleSearchBar' class='activeButton' title='Поиск'></div></div>
+			</div>
+			<div class='accContent'  id="searchContaner" >			
+				<div id='searchCityContaner'>
+					<!--div id='locationSearchActionStr'>
+						<span class='activeButton'>Искать</span>
+					</div-->
+						<!--input id="searchCity"  /-->  
+					<input type = 'text' id="searchCity" name="searchCity" class="input_fast_search" value="Введите поисковый запрос..."  onFocus='this.value=""; ' onBlur='clearSearchbarF(this.id)'/>  
+					<span id='resMessageF'></span> 				
+				</div>
+				<div id='locationContaner' >
+					<div id='cityLabel'>					
+					</div>
+					<div id='detailAdrContaner'>					
+						<div id='detailAdrSearchToggle' ><span class='activeLinkLittle'>уточнить местоположение</span></div>
+						<div id='detailAdrSearchLabel'>Гоголя, 15</div>
+						<div id='detailAdrSearchContaner'>
+							<input type = 'text' id="detailAdrSearchInput" name="searchCity"  value='пример: "ул Ленина 14"'  onFocus='this.value=""; ' onBlur='if($(this).val() == "") $(this).val("пример: \"ул Ленина 14\"");'/>  
+							<span id='detailAdrSearchSubmit' class='activeButton' title='Поиск'></span>
+						</div>
+						<div id='detailAdrSearchRenew'><span class='activeLinkLittle'>изменить</span></div>
+					</div>					
+				</div>
+			</div>
+			
+			<div class='accHeader  hDsbl' id="distrHeader"> 
+				<div class='lbl'><span class="accHIcon accHIconEnbl"></span> Районы  </div>
+				<div class='switchContaner'><!--label for='switchDistr'>Отображать</label--><input type='checkbox' class='js-switch' id='switchDistr'  /></div>
+			</div>
+			<div class='accContent'  id="distrContaner" >			
+				<ul class='accItem' id="distrList" >
+				</ul>
+			</div>
+			
+			<div class='accHeader hDsbl' id="cityHeader">
+				<div class='lbl'><span class="accHIcon accHIconEnbl"></span>Границы Населённых пунктов</div>
+				<div class='switchContaner'><!--label for='switchCity'>Отображать</label--><input type='checkbox' class='js-switch' id='switchCity'  /></div>
+			</div>
+			<div class='accContent' id="cityContaner"  >			
+				<ul class='accItem '  id="cityList" >
+				</ul>
+			</div>
+		</div>	
+	</div>	
+	<script>
+	var mymap = L.map('mapid', {zoomControl : false});	
+//	mymap.fitBounds([[minlat,minlng],[maxlat,maxlng]]);
+
+	</script>
+	<script src="inc/JS/baseLayers.js" type="text/javascript"></script>	
+	<script>
+	</script>
+
+
+</body>
+</html>

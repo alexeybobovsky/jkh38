@@ -1,0 +1,178 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, a,
+    font, img, dl, dt, dd, ol, ul, li, legend, table, tbody, tr, th, td 
+		{
+		margin:0px;
+		padding:0px;
+		border:0;
+		outline:0;
+		font-weight:inherit;
+		font-style:inherit;
+		font-size:100%;
+		font-family:inherit;
+		list-style:none;
+		}
+	#mapContaner		
+		{
+/*		border: 1px #00a solid;*/
+		top:55; 
+		left:0; 
+		right:0;
+		bottom:0;
+		margin-bottom: 0px; 
+		position:absolute;
+		z-index:5; 
+/*		background: #f7ccf7;*/
+		}
+	#searchPad		
+		{
+		width:; 
+		z-index:100; 
+		left: 0px; 
+		right: 0px; 
+		top: 0px; 
+		height: 60px;	
+/*		top:5px; 
+		left:200px; 
+		
+		height:32px; 
+/*		background: #f7f7f7;
+		border: 1px #ccc solid;*/
+		position:absolute;
+		}	
+	#searchStrCont
+		{
+		bottom:0px;
+		left: 0px; 
+		right: 0px; 
+		height: 32px;
+		position: absolute;
+		}
+		#searchPad input[type="text"]        		{/*position:absolute; left: 0px; right: 0px; *//*width:350px;	*/ margin-left: 1px; margin-right: 1px; border:1px solid #999;	padding:5px; color:#aaa; 	-moz-border-radius:4px; background: #f7f7f7; float:left; }
+		#searchPad input[type="text"]:focus   	{ border-color:#777; background:#fff; color:#000; }
+		#searchPad input[type="submit"]       	{ cursor:pointer;border:1px solid #999;	padding:5px;	-moz-border-radius:4px;	background:	#f7f7f7; }
+		#searchPad input[type="submit"]:hover,
+		#searchPad input[type="submit"]:focus { border-color:#333;/*background:#ddd; */}
+		
+		#searchPad #procIndicator {position:absolute; width:100px; left: 250px; top: 3px; text-align: right; /* border: #333 1px solid; */ }
+		#searchPad #procIndicator #resMessage {color:#CC0000; font-size: 80%;}
+		#searchPad #procIndicator #searchIndicatorImg {position:absolute; left: 52px; top: 5px; /*border: 1px solid #999;*/}
+		
+	#YMapsID 
+		{
+/*		border: 1px black solid;*/
+		position:absolute;
+		top:0; 
+		left:0; 
+		right:0;
+		bottom:0;
+/**************new?******************************/		
+		margin-top:0px; 
+		margin-left:0px; 
+		margin-bottom:0px; 
+		margin-bottom:0px; 
+		margin-right:0px; 
+/**************new******************************/		
+/**************old******************************/		
+/*		
+		margin-top:42px; 
+		margin-left:370px; 
+		margin-bottom:10px; 
+		margin-right:10px; 
+		/************IE*************/
+/*		width: expression(document.body.offsetWidth-310);
+		height: expression(document.body.offsetHeight-100-82);
+		/************IE*************/		
+/**************old******************************/		
+		padding:1px;
+		border-left: 0px solid;
+		border-top: 0px solid;
+		border-bottom: 0px solid;
+		border-right: 0px solid;
+		z-index: 90;
+		}
+	#layerPad 
+		{
+		font-family: /*"Palatino Linotype", */"Times new roman", courier, serif;		
+		cursor:auto; 
+		background-color: #f7f7dd;
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+		top:850px;
+		
+/*		width:350px;*/
+		/************IE*************/
+		/*height: expression(document.body.offsetHeight-100-82);*/
+		/************IE*************/
+		padding-left:5px; 
+		padding-right:5px; 
+		margin:1px; 
+		border: 0px solid;
+		z-index: 11;
+		overflow: hidden;
+		}	
+	#layerPad #layerTop{
+		background: #f7f7bb;
+		padding:5px; 
+		height: 45px;
+		/*height: 19px;*/
+		margin:2px; 
+		text-align: left;
+        }		
+	#layerPad #layerTop #catLabel {
+		position:absolute;
+/*		left:200px;*/
+		right:4px;
+/*		font-family: "Times New Roman", Times, serif;*/
+		font-size: 150%;
+		color: #666666;
+		cursor:pointer; 
+		cursor:hand;  
+		border: 1px solid black;
+/*		cursor:pointer; 
+		cursor:hand;  
+		background: #ccf7f7;*/
+        }		
+	#layerPad #layerTop #orgLabel {
+		position:absolute;
+/*		left:200px;*/
+		left:4px;
+/*		font-family: "Times New Roman", Times, serif;*/
+		font-size: 150%;
+		color: #CC0000;
+		border: 1px solid black;
+/*		cursor:pointer; 
+		cursor:hand;  
+		background: #ccf7f7;*/
+        }		
+/*	#layerPad #layerBody{
+		background: #f7f7dd;		
+        }		*/
+	#layerPad .contaner{
+		padding: 2px;
+		width: 115px;
+		/*height: 19px;*/
+		float: left;
+		margin-left:2px; 
+		text-align: left;
+        }		
+	#layerPad .contaner .parent{
+		font-size: 1.em;		
+		margin-bottom:2px; 
+		}
+	#layerPad .contaner .child{
+		font-size: 0.8em;		
+		margin-bottom:2px; 
+		cursor:pointer; 
+		cursor:hand;  
+		color: #006DD4;
+/* 		border-bottom: 1px dashed;*/
+		
+		}		
+	#layerPad .contaner .child:hover{
+		color: #cc0000;
+		}
+	#layerPad .contaner .selected{
+		background-color: #fde910;
+		}

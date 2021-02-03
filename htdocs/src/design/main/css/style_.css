@@ -1,0 +1,69 @@
+#ObjListSrvc{
+	background-color: #eee;
+	position: absolute;
+	z-index: 50;
+	width: 200px;
+	height:400px;
+	left:10px;
+	top:50px;
+	text-align:right;
+	display:none;
+	-webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+	
+	}
+#ObjListSrvc #objListContaner{
+	height: 100%;
+	overflow: scroll;
+	top: 10px;
+	text-align:left;
+	}
+#ObjListSrvc #objListContaner div{
+	
+	margin-bottom:10px;
+	color: #396398;
+	cursor:pointer; 
+	cursor:hand;  	
+	}
+#ObjListSrvc #objListContaner div:hover{
+		border-bottom: 1px dashed #737373;
+		}
+	
+#mainContent{
+	padding: 10px;
+	}
+#map_pic{
+	-webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+	   -moz-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+	        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+	}
+#titleBar{
+	width:100%;
+	height: 50px;
+	background-color: #FBEC5D;
+	border-bottom: 1px dashed #888888;
+	}
+#titleBar #titleContent{
+	position: absolute;	
+	}
+#titleBar #titleContent ul {
+	float:left;
+	list-style: none;
+	}
+#titleBar #titleContent ul li{
+	margin-left: 10px;
+	color: #444444;
+	font-size: 1.8em;
+	float:left;
+	}
+#titleBar #titleContent ul li a{color: #444444;text-decoration:none;}
+		#titleBar #titleContent ul li a:hover{ text-decoration:underline;}
+
+	
+#YMapsID{
+/*		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		-khtml-border-radius: 15px;	
+		border-radius: 15px;*/
+	}

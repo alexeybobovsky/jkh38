@@ -1,0 +1,98 @@
+body
+{
+	background: #fff;
+/*	height: 100%;*/
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+ul
+{
+	width: 200px;
+	background-color: #eee;
+	border: 1px solid #555;
+	list-style: none;
+	margin: 4px;
+	padding: 6px;
+	float: left;
+}
+li
+{
+	margin: 2px;
+	padding: 4px;
+	background: #fff;
+	border: 1px solid #666;
+	color: #000055;
+}
+ul.sortableactive
+{
+	border: 1px dashed #006600;
+	background-color: #ddd;
+}
+ul.sortablehover
+{
+	border: 1px solid #880000;
+	background-color: #ddd;
+}
+.sorthelper
+{
+	list-style: none;
+	border: 1px dotted #ccc;
+}
+.serializer
+{
+	clear: both;
+	margin: 20px 0;
+}
+.serializer a
+{
+	color: #33f;
+}
+.serializer a:hover
+{
+	color: #FF6600;
+}
+table.din 	{
+			color:#000000;
+			font-size:12px;
+
+		}
+table.header {
+			background-color: #eeeeee;
+			color:#000000;
+			font-size:12px;
+			FONT-WEIGHT: bold;
+			border-top-width: 1px;
+			border-right-width: 1px;
+			border-bottom-width: 1px;
+			border-left-width: 1px;
+			border-top-style: solid;
+			border-right-style: solid;
+			border-left-style: solid;
+			border-bottom-style: solid;
+			border-top-color: #CCCCCC;
+			border-right-color: #CCCCCC;
+			border-left-color: #CCCCCC;
+			border-bottom-color: #CCCCCC;
+
+		}
+
+		}
+table.din th 	{
+			background-color: #eeeeee;
+			color:#000000;
+			font-size:12px;
+			FONT-WEIGHT: normal;
+
+		}
+table.din th table	{
+			background-color: #eeeeee;
+			color:#000000;
+			font-size:12px;
+			FONT-WEIGHT: normal;
+
+		}
+table.din td table	{
+			color:#000000;
+			font-size:12px;
+
+		}

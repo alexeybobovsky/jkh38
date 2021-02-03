@@ -1,0 +1,77 @@
+.ui-front {
+	z-index: 3000;
+	}
+.ac_results {
+     /*font-family: "Palatino Linotype", "Times new roman", courier, serif;
+    FONT-SIZE: 16px; */
+    z-index: 3000;
+    padding: 0px;
+    border: 1px solid WindowFrame;
+    background-color: #eee;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    -moz-opacity: 0.85;
+    -khtml-opacity: 0.85;
+    opacity: 0.85;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results iframe {
+	display:none;/*sorry for IE5*/
+	display/**/:block;/*sorry for IE5*/
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+	filter:mask();
+	width:3000px;
+	height:3000px;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+/*	font: menu;*/
+	font-size: 14px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background-color: grey;
+//	background : Window url('./indicator.gif') right center no-repeat;
+}
+
+.ac_over {
+	background-color: Highlight;
+	background-color: infobackground;
+	color: black;
+}
+.ac_searched {
+	color: darkgreen;
+	text-decoration: underline;
+}
+.multitypeContaner{
+	width:100%;	
+}
+.multitypeContaner .findResult{
+	text-align:left;
+	font-size: 16px;
+/*	border: 1px solid WindowFrame;*/
+	float: left;
+	}
+.multitypeContaner .findType{
+	text-align:right;
+	font-style: italic;
+/*	width:100%;	
+	border: 1px solid WindowFrame;*/
+	}

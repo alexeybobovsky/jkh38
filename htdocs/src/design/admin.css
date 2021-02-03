@@ -1,0 +1,544 @@
+/***********************************************/
+/* HTML tag styles                             */
+/***********************************************/
+
+body{
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+	line-height: 1.166;
+	margin: 0px;
+	padding: 0px;
+	font-size: 12pt;
+}
+
+a:link, a:visited, a:hover {
+	color: #222;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+/* overrides decoration from previous rule for hovered links */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Arial,sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1{
+ font-family: Verdana,Arial,sans-serif;
+ font-size: 120%;
+ color: #334d55;
+}
+
+h2{
+	font-size: 114%;
+	color: #006699;
+	left: 10px;
+	padding-left: 10px;
+}
+
+h3{
+ font-size: 100%;
+ color: #334d55;
+}
+
+h4{
+ font-size: 100%;
+ font-weight: normal;
+ color: #333333;
+}
+
+h5{
+ font-size: 100%;
+ color: #334d55;
+}
+
+ul{
+ list-style-type: square;
+}
+
+ul ul{
+ list-style-type: disc;
+}
+
+ul ul ul{
+ list-style-type: none;
+}
+
+label{
+ font: normal 100% Arial, sans-serif;
+ color: #334d55;
+}
+
+pre {
+	font: normal 100% Courier;
+	FONT-SIZE: 9px; 
+	COLOR: #0000bb; 
+	BACKGROUND-COLOR: #efefef
+}
+/*
+td{
+	color: #334d55;
+	border: 1px solid #000000;
+}
+*/
+
+/***********************************************/
+/* Layout Divs                                 */
+/***********************************************/
+.report{
+	color: black;
+	border: 1px solid #000000;
+}
+.list_th{
+	clear: both;
+	BORDER-LEFT: #cccccc 1px solid; 
+	BORDER-RIGHT: #cccccc 1px solid; 
+	BORDER-TOP: #cccccc 1px solid; 
+	color: #334d55;
+	font-weight: bold;
+}
+.list_th_norm{
+	clear: both;
+	/*border: 1px dashed #cccccc;
+	background-color: #eeeeee;*/
+	color: #334d55;
+	font-weight: bold;
+	font-size: 100%;
+	/*padding: 10px 10px 10px 10px;*/
+	/*margin-top: -1px;*/
+}
+.list_td{
+	clear: both;
+	border: 1px dotted #cccccc;
+	/*background-color: #eeeeee;*/
+	color: #334d55;
+	/*padding: 10px 10px 10px 10px;*/
+	/*margin-top: -1px;*/
+}
+
+.content {
+	background-color: #FFFFFF;
+	border-top: 1px #CCCCCC;
+	border-right: 1px dashed #CCCCCC;
+	border-bottom: 1px dashed #CCCCCC;
+	border-left: 1px dashed #CCCCCC;
+	margin-left: 15px;
+	position: relative;
+	FONT-SIZE: 14px; 
+}
+
+.MainBorder {
+	border: thin solid #CCCCCC;
+}
+
+.input2 {
+		z-index: 0;
+		}
+.headYear {color:#FFFFFF;font-size:15px;font-weight:bold}
+.headMonth {font-size:13px;color:#F8981D;font-weight:bold}
+.headDay {color:#FFFFFF;font-weight:bold}
+
+/* TEXT */
+.textDay {color:#999999}
+.textDayOn {color:#FFFFFF;background:#F79822}
+.textDaySel {color:#FFFFFF;	border: 2px solid #F79822;}
+.textHidden {color:#7DBB12;font-size:11pt;font-weight:bold}
+
+/* LINK */
+a.linkYear {color:#FFFFFF;font-size:11pt;font-weight:bold;text-decoration:none}
+.textDay a {color:#666666;text-decoration:none}
+.textDay a:hover{color:#666666;text-decoration:underline}
+.textDayOn a {color:#FFFFFF;text-decoration:none}
+.textDayOn a:hover{color:#FFFFFF;text-decoration:underline}
+div.tree	a{
+		color: #000000;
+		font-size: 14px;
+		text-decoration: none;
+		}
+table.din 	{
+			color:#000000;
+			font-size:12px;
+
+		}
+table.din td 	{
+			BORDER-BOTTOM: #bbb 1px solid;
+		}
+table.din th 	{
+			background-color: #eeeeee;
+			color:#000000;
+			font-size:12px;
+			FONT-WEIGHT: normal;
+			BORDER-BOTTOM: #bbb 1px solid;
+		}
+table.din th h1	{
+			background-color: #eeeeee;
+			color:#000000;
+			font-size:12px;
+			FONT-WEIGHT: bold;
+
+		}
+table.din th h2	{
+			background-color: #eeeeee;
+			color:#ee0000;
+			font-size:12px;
+			FONT-WEIGHT: normal;
+
+		}
+table.din th table	{
+			background-color: #eeeeee;
+			color:#000000;
+			font-size:12px;
+			FONT-WEIGHT: normal;
+			BORDER-BOTTOM: 0px;
+
+		}
+table.din td table	{
+			color:#000000;
+			font-size:12px;
+			BORDER-BOTTOM: 0px;
+
+		}
+/*fieldset {
+			color:#000000;
+			font-size:12px;
+		}*/
+.inputInfo{
+			color:000000; 
+			WIDTH: 200px; 
+			border-width:0px; 
+			background-color:dddddd; 
+			cursor:not-allowed; 
+			}
+.scrBoxUsers{
+		BORDER-BOTTOM: #FF0000 1px solid; 
+		BORDER-LEFT: #FF0000 1px solid; 
+		BORDER-RIGHT: #FF0000 1px solid; 
+		BORDER-TOP: #FF0000 1px solid; 
+		BORDER-BOTTOM: #dddddd 1px solid; 
+		BORDER-LEFT: #dddddd 1px solid; 
+		BORDER-RIGHT: #dddddd 1px solid; 
+		BORDER-TOP: #dddddd 1px solid; 
+		HEIGHT: 200px; 
+		OVERFLOW: auto; 
+		PADDING-BOTTOM: 8px; 
+		PADDING-LEFT: 8px; 
+		PADDING-RIGHT: 8px; 
+		PADDING-TOP: 8px; 
+		WIDTH: 100%
+		}
+.scrBoxTree{
+		BORDER-BOTTOM: #FF0000 1px solid; 
+		BORDER-LEFT: #FF0000 1px solid; 
+		BORDER-RIGHT: #FF0000 1px solid; 
+		BORDER-TOP: #FF0000 1px solid; 
+		BORDER-BOTTOM: #dddddd 1px solid; 
+		BORDER-LEFT: #dddddd 1px solid; 
+		BORDER-RIGHT: #dddddd 1px solid; 
+		BORDER-TOP: #dddddd 1px solid; 
+		HEIGHT: 400px; 
+		OVERFLOW: auto; 
+		PADDING-BOTTOM: 8px; 
+		PADDING-LEFT: 8px; 
+		PADDING-RIGHT: 8px; 
+		PADDING-TOP: 8px; 
+		WIDTH: 95%
+		}
+.scrBoxTreeArt{
+		BORDER-BOTTOM: #FF0000 1px solid; 
+		BORDER-LEFT: #FF0000 1px solid; 
+		BORDER-RIGHT: #FF0000 1px solid; 
+		BORDER-TOP: #FF0000 1px solid; 
+		BORDER-BOTTOM: #dddddd 1px solid; 
+		BORDER-LEFT: #dddddd 1px solid; 
+		BORDER-RIGHT: #dddddd 1px solid; 
+		BORDER-TOP: #dddddd 1px solid; 
+		HEIGHT: 500px; 
+		width: 500px; 
+		OVERFLOW: auto; 
+		PADDING-BOTTOM: 8px; 
+		PADDING-LEFT: 8px; 
+		PADDING-RIGHT: 8px; 
+		PADDING-TOP: 8px; 
+		}
+.scrBoxTreeProp{
+		BORDER-BOTTOM: #FF0000 1px solid; 
+		BORDER-LEFT: #FF0000 1px solid; 
+		BORDER-RIGHT: #FF0000 1px solid; 
+		BORDER-TOP: #FF0000 1px solid; 
+		BORDER-BOTTOM: #dddddd 1px solid; 
+		BORDER-LEFT: #dddddd 1px solid; 
+		BORDER-RIGHT: #dddddd 1px solid; 
+		BORDER-TOP: #dddddd 1px solid; 
+		HEIGHT: 200px; 
+		OVERFLOW: auto; 
+		PADDING-BOTTOM: 8px; 
+		PADDING-LEFT: 8px; 
+		PADDING-RIGHT: 8px; 
+		PADDING-TOP: 8px; 
+		WIDTH: 95%
+		}
+.scrBoxForm{
+		BORDER-BOTTOM: #FF0000 1px solid; 
+		BORDER-LEFT: #FF0000 1px solid; 
+		BORDER-RIGHT: #FF0000 1px solid; 
+		BORDER-TOP: #FF0000 1px solid; 
+		BORDER-BOTTOM: #dddddd 1px solid; 
+		BORDER-LEFT: #dddddd 1px solid; 
+		BORDER-RIGHT: #dddddd 1px solid; 
+		BORDER-TOP: #dddddd 1px solid; 
+		HEIGHT: 100%; 
+		OVERFLOW: auto; 
+		PADDING-BOTTOM: 8px; 
+		PADDING-LEFT: 8px; 
+		PADDING-RIGHT: 8px; 
+		PADDING-TOP: 8px; 
+		WIDTH: 300px
+		}
+.editable_text{
+				text-decoration: none;
+				cursor: hand;
+				}
+.editable_text:hover{
+				text-decoration: none;
+				}
+.editable_select{
+				text-decoration: none;
+				cursor: hand;
+				}
+.editable_select:hover{
+				text-decoration: none;
+				}
+
+.highlight {
+	BACKGROUND-COLOR: #efefff;
+	BORDER-RIGHT: #bbb 1px solid; 
+	BORDER-LEFT: #bbb 1px solid; 
+}
+.largeHeaders {
+		background: 
+			#e9e9da
+			url('/src/design/admin/green_arrows.gif')
+			no-repeat
+			center left;
+		color: #333;
+		padding: 3px;
+		padding-left: 25px;
+		text-align: left;
+		cursor: pointer;	
+}
+.sortUp {
+	background:
+		#e9e900 
+		url('/src/design/admin/green_decending.gif')		
+		no-repeat
+		center left;
+}
+.sortDown {
+	background:
+		#e9e900 
+
+		url('/src/design/admin/green_acending.gif')
+		no-repeat
+		center left;
+}
+#sorting {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left:0px;
+	top:0px;
+	text-align: center;
+	display: none;
+	margin:0px;
+	padding:0px;
+}
+#sorting div {
+/*	left: 100px;*/
+	top: 10px;
+
+	border: 1px solid #000;
+	padding:20px;
+	margin: auto;
+	text-align: center;
+	width: 300px;
+/*	top:200px;*/
+	position: relative;
+	background-color: #FFF;
+	color: #333;
+	font-weight: bold;
+	z-index: 10;
+}
+
+.inputArtSubmit{
+			WIDTH: 100%; 
+			border-width: 1px;
+			border-style: solid;
+			border-color: #FF0000;
+			background-color: #FFF;
+			}
+.inputFilter{
+			border-width: 1px;
+			border-style: solid;
+			border-color: #BBB;
+			FONT-SIZE: 8pt; 
+			background-color: #FFF;
+			}
+.inputArt{
+			WIDTH: 99%;
+			}			
+
+TABLE.Order1-1 TH {
+	BACKGROUND: #f4f4f4; 
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 10pt; 
+	COLOR: #000099; 
+	BORDER-BOTTOM: 
+	#c0c0c0 1px solid;
+}
+
+TABLE.Order1-1 TD {
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 10pt; 
+	COLOR: #000000; 
+	BORDER-BOTTOM: 
+	#dddddd 1px solid;
+}
+
+TABLE.Order1-2 TD {
+	FONT-WEIGHT: normal; 
+	FONT-SIZE: 11pt; 
+	COLOR: #000000;
+}
+
+
+Table.Menu1 {
+	BORDER-RIGHT: #e9e9e9 1px solid; 
+	BORDER-TOP: #e9e9e9  0px solid; 
+	BORDER-LEFT: #d0d0d0 0px solid; 
+	BORDER-BOTTOM: #d0d0d0 1px solid;
+	BACKGROUND: #FaFaFa;
+}
+
+Table.Menu1 TD.Now{
+	COLOR: #dd0000; 
+	BORDER: 0px solid; BACKGROUND: #FFFFFF; 
+
+}
+
+Table.Menu1 TD.SP{
+	BORDER: 0px solid; BACKGROUND: #FFFFFF; 
+}
+
+
+.hand {cursor: hand;}
+/*
+body{
+	FONT-SIZE: 10pt;
+	BACKGROUND: #ffffff;
+	PADDING: 0px;
+	FONT-FAMILY: Arial;
+}
+
+*/
+.active_img{
+	BACKGROUND: url(active_bg_img.gif);
+}
+
+
+.active_text{
+	BACKGROUND: #DBEDBD;
+}
+
+.active{
+POSITION: absolute; 
+top: 43px;
+left:10px;	
+width: 160px;
+height: 200px;
+PADDING: 10px;
+BACKGROUND: url(active_bg_div.gif) BOTTOM right no-repeat #DBEDBD;
+}
+
+
+ 
+
+a.link_sub{
+	FONT-SIZE: 11pt;
+	COLOR: #474747;	
+	}
+
+a.link_sub_active{
+	font-weight: bold;
+	FONT-SIZE: 11pt;
+	COLOR: #474747;
+        BACKGROUND: url(dot_li.gif) center right no-repeat;
+	padding-right: 25px;
+
+}
+
+a.link_main{
+	FONT-SIZE: 12pt;
+	COLOR: #5C5C5C;
+}
+a.link_main_active{
+	font-weight: bold;
+	FONT-SIZE: 12pt;
+	COLOR: #5C5C5C;
+}
+.disabled{
+	color:#dd8888;
+}
+
+
+SMALL  {
+	COLOR: #518C73; 
+}
+label 
+	{font-size:11px;color:#000000;font-weight:normal}
+
+.notice {
+	COLOR: #000000; BACKGROUND-COLOR: #ffffdd
+}
+H1.notice {
+	BORDER-RIGHT: #ffd700 0.1em solid; PADDING-RIGHT: 10px; BACKGROUND-POSITION: 10px 50%; BORDER-TOP: #ffd700 0.1em solid; PADDING-LEFT: 36px; 
+	PADDING-BOTTOM: 10px; MARGIN: 0.5em 0px; BORDER-LEFT: #ffd700 0.1em solid; PADDING-TOP: 10px; BORDER-BOTTOM: #ffd700 0.1em solid; BACKGROUND-REPEAT: no-repeat
+}
+DIV.notice {
+	BORDER-RIGHT: #ffd700 0.1em solid; PADDING-RIGHT: 10px; BACKGROUND-POSITION: 10px 50%; BORDER-TOP: #ffd700 0.1em solid; PADDING-LEFT: 36px;  PADDING-BOTTOM: 10px; MARGIN: 0.5em 0px; BORDER-LEFT: #ffd700 0.1em solid; PADDING-TOP: 10px; BORDER-BOTTOM: #ffd700 0.1em solid; BACKGROUND-REPEAT: no-repeat
+}
+.notice H1 {
+	FONT-WEIGHT: bold; MARGIN: 0px 0px 0.2em; BORDER-BOTTOM: #ffd700 0.1em solid; TEXT-ALIGN: left
+}
+.warning {
+	COLOR: #cc0000; BACKGROUND-COLOR: #ffffcc
+}
+P.warning {
+	BORDER-RIGHT: #cc0000 0.1em solid; PADDING-RIGHT: 10px; BACKGROUND-POSITION: 10px 50%; BORDER-TOP: #cc0000 0.1em solid; PADDING-LEFT: 36px;  PADDING-BOTTOM: 10px; MARGIN: 0.5em 0px; BORDER-LEFT: #cc0000 0.1em solid; PADDING-TOP: 10px; BORDER-BOTTOM: #cc0000 0.1em solid; BACKGROUND-REPEAT: no-repeat
+}
+H1.warning {
+	BORDER-RIGHT: #cc0000 0.1em solid; PADDING-RIGHT: 10px; BACKGROUND-POSITION: 10px 50%; BORDER-TOP: #cc0000 0.1em solid; PADDING-LEFT: 36px;  PADDING-BOTTOM: 10px; MARGIN: 0.5em 0px; BORDER-LEFT: #cc0000 0.1em solid; PADDING-TOP: 10px; BORDER-BOTTOM: #cc0000 0.1em solid; BACKGROUND-REPEAT: no-repeat
+}
+DIV.warning {
+	BORDER-RIGHT: #cc0000 0.1em solid; PADDING-RIGHT: 10px; BACKGROUND-POSITION: 10px 50%; BORDER-TOP: #cc0000 0.1em solid; PADDING-LEFT: 36px;  PADDING-BOTTOM: 10px; MARGIN: 0.5em 0px; BORDER-LEFT: #cc0000 0.1em solid; PADDING-TOP: 10px; BORDER-BOTTOM: #cc0000 0.1em solid; BACKGROUND-REPEAT: no-repeat
+}
+.warning H1 {
+	FONT-WEIGHT: bold; MARGIN: 0px 0px 0.2em; BORDER-BOTTOM: #cc0000 0.1em solid; TEXT-ALIGN: left
+}
+.error {
+	COLOR: #ff0000; BACKGROUND-COLOR: #ffffcc
+}
+H1.error {
+	BORDER-RIGHT: #ff0000 0.1em solid; PADDING-RIGHT: 10px; BACKGROUND-POSITION: 10px 50%; BORDER-TOP: #ff0000 0.1em solid; PADDING-LEFT: 36px;  PADDING-BOTTOM: 10px; MARGIN: 0.5em 0px; BORDER-LEFT: #ff0000 0.1em solid; PADDING-TOP: 10px; BORDER-BOTTOM: #ff0000 0.1em solid; BACKGROUND-REPEAT: no-repeat
+}
+DIV.error {
+	BORDER-RIGHT: #ff0000 0.1em solid; PADDING-RIGHT: 10px; BACKGROUND-POSITION: 10px 50%; BORDER-TOP: #ff0000 0.1em solid; PADDING-LEFT: 36px;  PADDING-BOTTOM: 10px; MARGIN: 0.5em 0px; BORDER-LEFT: #ff0000 0.1em solid; PADDING-TOP: 10px; BORDER-BOTTOM: #ff0000 0.1em solid; BACKGROUND-REPEAT: no-repeat
+}
+DIV.error H1 {
+	FONT-WEIGHT: bold; MARGIN: 0px 0px 0.2em; BORDER-BOTTOM: #ff0000 0.1em solid; TEXT-ALIGN: left
+}
+
+

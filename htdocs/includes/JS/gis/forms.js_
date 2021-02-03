@@ -1,0 +1,2003 @@
+function formRoutine(){
+	var cloneMessId = 0;
+	var cloneMessType = '';
+	var formName = '';
+	var zhkh2Head = {
+			1 : {'label' : 'Количество источников теплоснабжения, (ед.)' },
+			2 : {'label' : 'Количество отапливаемых жилых зданий, (ед.)' },
+			3 : {'label' : 'Объем отапливаемых жилых зданий, (м<sup>3</sup>)' },
+			4 : {'label' : 'Кол. отапливаемых зданий соц.назначения, (ед.)' },
+			5 : {'label' : 'Объем отапливаемых зданий соц назначения, (м<sup>3</sup>)' },
+			6 : {'label' : 'Средняя продолжительность отоп.периода, (сут.)' },
+			7 : {'label' : 'Количество источников теплоснабжения, имеющих второй ввод энергоснабжения (ед)' },
+			8 : {'label' : 'Количество котлов, (ед)' },
+			9 : {'label' : 'Мощность котельных установок, (Гкал/ч)' },
+			10 : {'label' : 'Расход топлива по норме, (кг/Гкал/ч)' },
+			11 : {'label' : 'Расход топлива фактически, (кг/Гкал/ч)' },
+		};
+	var zhkh2Field = {
+			cell_1 : {'label' : 'на угле всего ' },
+			cell_2 : {'label' : 'на угле в т.ч. резерв ' },
+			cell_3 : {'label' : 'на дровах всего ' },
+			cell_4 : {'label' : 'на дровах в т.ч. резерв ' },
+			cell_5 : {'label' : 'на мазуте всего ' },
+			cell_6 : {'label' : 'на мазуте в т.ч. резерв' },
+			cell_7 : {'label' : 'на газоконденсате всего ' },
+			cell_8 : {'label' : 'на газоконденсате в т.ч. резерв ' },
+			cell_9 : {'label' : 'эл. котельные всего' },
+			cell_10 : {'label' : 'эл. котельные в т.ч. резерв ' },
+		};
+	var zhkh3Field = {
+			cell_1 : {'label' : '[уголь] всего (т.)', 'type' : 'i'},
+			cell_2 : {'label' : '[уголь] основное (т.)'},
+			cell_3 : {'label' : '[уголь] резервное (т.)'},
+			cell_4 : {'label' : '[дрова] всего (м<sup>3</sup>.)'},
+			cell_5 : {'label' : '[дрова] основное (м<sup>3</sup>.) '},
+			cell_6 : {'label' : '[дрова] резервное (м<sup>3</sup>.) '},
+			cell_7 : {'label' : '[щепа] всего (м<sup>3</sup>.) '},
+			cell_8 : {'label' : '[щепа] основное (м<sup>3</sup>.)'},
+			cell_9 : {'label' : '[щепа] резервное (м<sup>3</sup>.)'},
+			cell_10 : {'label' : '[мазут] всего (т.)'},
+			cell_11 : {'label' : '[мазут] основное (т.) '},
+			cell_12 : {'label' : '[мазут] резервное (т.) '},
+			cell_13 : {'label' : '[газ] всего (м<sup>3</sup>.) '},
+			cell_14 : {'label' : '[газ] основное (м<sup>3</sup>.) '},
+			cell_15 : {'label' : '[газ] резервное (м<sup>3</sup>.) '},
+			cell_16 : {'label' : '[газоконденсат] всего (т.)'},
+			cell_17 : {'label' : '[газоконденсат] основное (т.) '},
+			cell_18 : {'label' : '[газоконденсат] резервное (т.) '},
+			cell_19 : {'label' : '[электроэнергия] всего (кВт./ч.) '},
+			cell_20 : {'label' : '[электроэнергия] основное (кВт./ч.) '},
+			cell_21 : {'label' : '[электроэнергия] резервное (кВт./ч.) '}
+		};
+	var sfoField_5 = [];
+		sfoField_5['cell_62'] = "Топливо Уголь, отопительный сезон (тыс.тонн)";
+		sfoField_5['cell_63'] = "Топливо Уголь, нормативный запас (тыс.тонн) ";
+		sfoField_5['cell_64'] = "Топливо Уголь, запасено (тыс.тонн) ";
+		sfoField_5['cell_65'] = "Топливо Уголь, к общей потребности (%) ";
+		sfoField_5['cell_66'] = "Топливо Уголь, к нормативному запасу (%) ";
+		sfoField_5['cell_67'] = "Топливо Жидкое топливо, отопительный сезон (тыс.тонн) 	";
+		sfoField_5['cell_68'] = "Топливо Жидкое топливо, нормативный запас (тыс.тонн)";
+		sfoField_5['cell_69'] = "Топливо Жидкое топливо, запасено (тыс.тонн) ";
+		sfoField_5['cell_70'] = "Топливо Жидкое топливо, к общей потребности (%) ";
+		sfoField_5['cell_71'] = "Топливо Жидкое топливо, к нормативному запасу (%) ";
+	var sfoField_3 = [];
+		sfoField_3['cell_42'] = "Тепловые сети, всего (км.) ";
+		sfoField_3['cell_43'] = "Тепловые сети, из них ветхие (км.) ";
+		sfoField_3['cell_44'] = "Тепловые сети План подготовки (км.) ";
+		sfoField_3['cell_45'] = "Тепловые сети План подготовки, кап.ремонт и замена трубопроводов (км.) ";
+		sfoField_3['cell_46'] = "Тепловые сети Фактическая подготовка (км.) ";
+		sfoField_3['cell_47'] = "Тепловые сети Фактическая подготовка, кап.ремонт и замена трубопроводов (км.) ";
+		sfoField_3['cell_48'] = "Тепловые сети % готовности по графику (%) ";
+		sfoField_3['cell_49'] = "Тепловые сети % готовности по факту (%) ";
+		sfoField_3['cell_50'] = "Тепловые сети % готовности по графику (замена трубопров.)";
+		sfoField_3['cell_51'] = "Тепловые сети % готовности по факту (замена трубопров.)";
+		sfoField_3['cell_52'] = "Водопроводные, всего (км.) ";
+		sfoField_3['cell_53'] = "Водопроводные, из них ветхие (км.) ";
+		sfoField_3['cell_54'] = "Водопроводные План подготовки (км.) ";
+		sfoField_3['cell_55'] = "Водопроводные План подготовки, кап.ремонт и замена трубопроводов (км.) ";
+		sfoField_3['cell_56'] = "Водопроводные Фактическая подготовка (км.) ";
+		sfoField_3['cell_57'] = "Водопроводные Фактическая подготовка, кап.ремонт и замена трубопроводов (км.)  ";
+		sfoField_3['cell_58'] = "Водопроводные % готовности по графику (%) ";
+		sfoField_3['cell_59'] = "Водопроводные % готовности по факту (%) ";
+		sfoField_3['cell_60'] = "Водопроводные % готовности по графику (замена трубопров.)";
+		sfoField_3['cell_61'] = "Водопроводные % готовности по факту (замена трубопров.) ";
+	var sfoField_4 = [];
+		sfoField_4['cell_26'] = "Финансовые средства на подготовку к зиме ЖКХ План (млн.руб.)";
+		sfoField_4['cell_27'] = "Финансовые средства на подготовку к зиме ЖКХ План в т.ч. топливо (млн.руб.)";
+		sfoField_4['cell_28'] = "Финансовые средства на подготовку к зиме ЖКХ План областного бюджета, всего (млн.руб.)";
+		sfoField_4['cell_29'] = "Финансовые средства на подготовку к зиме ЖКХ План областного бюджета, в т.ч.топливо (млн.руб.)";
+		sfoField_4['cell_30'] = "Финансовые средства на подготовку к зиме ЖКХ План местного бюджета, всего (млн.руб.)";
+		sfoField_4['cell_31'] = "Финансовые средства на подготовку к зиме ЖКХ План местного бюджета, в т.ч.топливо (млн.руб.)";
+		sfoField_4['cell_32'] = "Финансовые средства на подготовку к зиме ЖКХ План предприятий ЖКХ, всего (млн.руб.) ";
+		sfoField_4['cell_33'] = "Финансовые средства на подготовку к зиме ЖКХ План предприятий ЖКХ, в т.ч.топливо (млн.руб.)";
+		sfoField_4['cell_34'] = "Финансовые средства на подготовку к зиме ЖКХ Фактическое финасирование выполненных объемов работ на объектах ЖКХ (млн.руб.)";
+		sfoField_4['cell_35'] = "Финансовые средства на подготовку к зиме ЖКХ Фактическое финасирование выполненных объемов работ на объектах ЖКХ, в т.ч.топливо (млн.руб.) ";
+		sfoField_4['cell_36'] = "Финансовые средства на подготовку к зиме ЖКХ Фактическое финасирование выполненных объемов работ на объектах ЖКХ, областного бюджета, всего (млн.руб.) ";
+		sfoField_4['cell_37'] = "Финансовые средства на подготовку к зиме ЖКХ Фактическое финасирование выполненных объемов работ на объектах ЖКХ, областного бюджета, в (млн.руб.) ";
+		sfoField_4['cell_38'] = "Финансовые средства на подготовку к зиме ЖКХ Фактическое финасирование выполненных объемов работ на объектах ЖКХ, местного бюджета, всего (млн.руб.) ";
+		sfoField_4['cell_39'] = "Финансовые средства на подготовку к зиме ЖКХ Фактическое финасирование выполненных объемов работ на объектах ЖКХ, местного бюджета, в (млн.руб.) 	 ";
+		sfoField_4['cell_40'] = "Финансовые средства на подготовку к зиме ЖКХ Фактическое финасирование выполненных объемов работ на объектах ЖКХ, предприятий ЖКХ, всего (млн.руб.) ";
+		sfoField_4['cell_41'] = "Финансовые средства на подготовку к зиме ЖКХ Фактическое финасирование выполненных объемов работ на объектах ЖКХ, предприятий ЖКХ, в т.ч: топ-во (млн.руб.) ";
+	var sfoField_2 = [];
+		sfoField_2['cell_17'] = "Котельные, всего (ед.)";
+		sfoField_2['cell_18'] = "Котельные План подготовки (ед.)";
+		sfoField_2['cell_19'] = "Котельные План подготовки, ремонт и реконструкция (ед.)";
+		sfoField_2['cell_20'] = "Котельные Фактическая подготовка, % готовности (ед.)";
+		sfoField_2['cell_21'] = "Котельные Фактическая подготовка, % готовности, ремонт и реконструкция, всего (%)";
+		sfoField_2['cell_22'] = "Котельные Фактическая подготовка, % готовности, ремонт и реконструкция, по графику (%) ";
+		sfoField_2['cell_23'] = "Котельные Фактическая подготовка, % готовности, ремонт и реконструкция, по факту (%)";
+		sfoField_2['cell_24'] = "Котельные Фактическая подготовка, % готовности, ремонт и реконструкция, по графику (%) ";
+		sfoField_2['cell_25'] = "Котельные Фактическая подготовка, % готовности, ремонт и реконструкция, по факту (%)";
+	var sfoField_1 ={};
+		sfoField_1['cell_3'] = "Жилой фонд, всего (ед.)";
+		sfoField_1['cell_4'] = "Жилой фонд, всего (тыс.кв.м.)";
+		sfoField_1['cell_5'] = "Жилой фонд План подготовки, всего (ед.)";
+		sfoField_1['cell_6'] = "Жилой фонд План подготовки, всего (тыс.кв.м.)";
+		sfoField_1['cell_7'] = "Жилой фонд План подготовки, в т.ч:кап.ремонт (ед.)";
+		sfoField_1['cell_8'] = "Жилой фонд План подготовки, в т.ч:кап.ремонт (тыс.кв.м.)";
+		sfoField_1['cell_9'] = "Жилой фонд, всего (ед.)";
+		sfoField_1['cell_10'] = "Жилой фонд Фактическая подготовка, всего (тыс.кв.м.)";
+		sfoField_1['cell_11'] = "Жилой фонд Фактическая подготовка, в т.ч:кап.ремонт и реконтр. (ед.)";
+		sfoField_1['cell_12'] = "Жилой фонд Фактическая подготовка, в т.ч:кап.ремонт и реконтр. (тыс.кв.м.) ";
+		sfoField_1['cell_13'] = "Жилой фонд % готовности, всего по графику (тыс.кв.м.) ";
+		sfoField_1['cell_14'] = "Жилой фонд % готовности, всего по факту (тыс.кв.м.)";
+		sfoField_1['cell_15'] = "Жилой фонд % готовности, в т.ч. кап.ремонт по графику (тыс.кв.м.)";
+		sfoField_1['cell_16'] = "Жилой фонд % готовности, в т.ч. кап.ремонт по факту (тыс.кв.м.)";
+//		console.log($(sfoField_1).size());
+//		console.log(sfoField_1.length);
+	var mesField = [];
+		mesField['l_name'] = "Муниципальное образование";
+		mesField['np'] = "Населенный пункт";
+		mesField['zhkhSectorName'] = "Отрасль ЖКХ";
+		mesField['orgName'] = "Наименование предприятия, устраняющего нарушение";
+		mesField['dateCreate'] = "Время и дата передачи сообщения о технологическом нарушении";
+		mesField['incidentDate'] = "Время и дата нарушения";
+		mesField['reason'] = "Причина выхода из строя оборудования";
+		mesField['hardware'] = "Объект, на котором произошло нарушение";
+		mesField['initiator'] = "ФИО и должность инициатора";
+		mesField['consumerNum'] = "Общее количество пострадавших";
+		mesField['bossOfWork'] = "ФИО и должность руководителя работ по устранению нарушения";
+		mesField['bossOfCity'] = "ФИО руководителя муниципалитета, контролирующего устранене";
+		mesField['badNewsMen'] = "ФИО, должность, наименование организации лица, несвоевременно передавшего в информацию о нарушении";
+		mesField['user_name'] = "Пользователь системы, создавший запись";
+		mesField['status'] = "Статус донесения";
+		mesField['closeDate'] = "Время и дата устранения нарушения";
+		mesField['comments'] = "Коментарии";
+	var zhkh1Field = [];
+		zhkh1Field['cell_1'] 	= 	"Жилищный фонд всего (тыс.ед.)";
+		zhkh1Field['cell_2'] 	= 	"Жилищный фонд всего (тыс.м2.)";
+		zhkh1Field['cell_3'] 	= 	"Жилищный фонд муниципальный (тыс.ед.)";
+		zhkh1Field['cell_4'] 	= 	"Жилищный фонд муниципальный (тыс.м2.)";
+		zhkh1Field['cell_5'] 	= 	"Жилищный фонд государственный (тыс.ед.)";
+		zhkh1Field['cell_6'] 	= 	"Жилищный фонд муниципальный (тыс.ед.)";
+		zhkh1Field['cell_7'] 	= 	"Жилищный фонд государственный (тыс.м2.)";
+		zhkh1Field['cell_8'] 	= 	"Жилищный фонд частный (тыс.ед.)";
+		zhkh1Field['cell_9'] 	= 	"Жилищный фонд частный (тыс.м2.)";
+		zhkh1Field['cell_10'] 	= 	"Котельные всего (ед.)";
+		zhkh1Field['cell_11'] 	= 	"Котельные всего (Гкал.)";
+		zhkh1Field['cell_12'] 	= 	"Котельные муниципальный (ед.)";
+		zhkh1Field['cell_13'] 	= 	"Котельные муниципальный (Гкал.)";
+		zhkh1Field['cell_14'] 	= 	"Тепловые сети (в 2-х трубном исчислении) всего (км.)";
+		zhkh1Field['cell_15'] 	= 	"Тепловые сети (в 2-х трубном исчислении) муниципальный (км.)";
+		zhkh1Field['cell_16'] 	= 	"Ветхие тепловые сети (в 2-х трубном исчислении) всего (км.)";
+		zhkh1Field['cell_17'] 	= 	"Ветхие сети (в 2-х трубном исчислении) муниципальный (км.) ";
+		zhkh1Field['cell_18'] 	= 	"Тепловые насосные станции всего (ед.)";
+		zhkh1Field['cell_19'] 	= 	"Тепловые насосные станции муниципальный (ед.)";
+		zhkh1Field['cell_20'] 	= 	"ЦТП всего (ед.)";
+		zhkh1Field['cell_21'] 	= 	"ЦТП муниципальный (ед.)";
+		zhkh1Field['cell_22'] 	= 	"Водозаборы всего (ед.)";
+		zhkh1Field['cell_23'] 	= 	"Водозаборы муниципальный (ед.)";
+		zhkh1Field['cell_24'] 	= 	"Насосные станции водопровода всего (ед.)";
+		zhkh1Field['cell_25'] 	= 	"Насосные станции водопровода муниципальный (ед.)";
+		zhkh1Field['cell_26'] 	= 	"Очистные сооружения водопровода всего (ед.)";
+		zhkh1Field['cell_27'] 	= 	"Очистные сооружения водопровода пропуск. способ. (т.м<sup>3</sup>/сут.) ";
+		zhkh1Field['cell_27'] 	= 	"Очистные сооружения водопровода муниципальный (км.)";
+		zhkh1Field['cell_28'] 	= 	"Очистные сооружения водопровода пропуск. способ. муниципальный (т.м<sup>3</sup>/сут.)";
+		zhkh1Field['cell_29'] 	= 	"Водопроводные сети всего (км.)";
+		zhkh1Field['cell_30'] 	= 	"Водопроводные сети муниципальный (км.)";
+		zhkh1Field['cell_31'] 	= 	"Ветхие водопроводные сети всего (км.)";
+		zhkh1Field['cell_32'] 	= 	"Ветхие водопроводные сети муниципальный (км.)";
+		zhkh1Field['cell_33'] 	= 	"Канализационные насосные станции всего (ед.)";
+		zhkh1Field['cell_34'] 	= 	"Канализационные насосные станции муниципальный (ед.) ";
+		zhkh1Field['cell_35'] 	= 	"Очистные сооружения канализации всего (ед.) ";
+		zhkh1Field['cell_36'] 	= 	"Очистные сооружения канализации пропуск. способ. (т.м<sup>3</sup>/сут.) ";
+		zhkh1Field['cell_37'] 	= 	"Очистные сооружения канализации муниципальный (км.)";
+		zhkh1Field['cell_38'] 	= 	"Очистные сооружения канализации пропуск. способ. муниципальный (т.м<sup>3</sup>/сут.) ";
+		zhkh1Field['cell_39'] 	= 	"Канализационные сети всего (км.)";
+		zhkh1Field['cell_40'] 	= 	"Канализационные сети муниципальный (км.)";
+		zhkh1Field['cell_41'] 	= 	"Ветхие канализационные сети всего (км.)";
+		zhkh1Field['cell_42'] 	= 	"Ветхие канализационные сети муниципальный (км.)";
+		zhkh1Field['cell_43'] 	= 	"Электр. сети всего (км.)";
+		zhkh1Field['cell_44'] 	= 	"Электр. сети муниципальный (км.)";
+		zhkh1Field['cell_45'] 	= 	"Ветхие электр. сети всего (км.)";
+		zhkh1Field['cell_46'] 	= 	"Ветхие электр. сети муниципальный (км.)";
+		zhkh1Field['cell_47'] 	= 	"Трансформаторные подстанции всего (ед.)";
+		zhkh1Field['cell_48'] 	= 	"Трансформаторные подстанции муниципальный (ед.)";
+		zhkh1Field['cell_49'] 	= 	"Специальные маш. для мех.уборки всего (ед.)";
+		zhkh1Field['cell_50'] 	= 	"Специальные маш. для мех.уборки муниципальный (ед.)";
+		zhkh1Field['cell_51'] 	= 	"Улично-дорожная сеть всего (т.м<sup>2</sup>)";
+		zhkh1Field['cell_52'] 	= 	"Улично-дорожная сеть муниципальный (т.м<sup>2</sup>) ";
+		zhkh1Field['cell_53'] 	= 	"Подг.мостов (тран.пеш. и путепроводов) всего (ед.)";
+		zhkh1Field['cell_54'] 	= 	"Подг.мостов (тран.пеш. и путепроводов) муниципальный (ед.)";
+		zhkh1Field['cell_55'] 	= 	"Подг.транспортных и пешех. тоннелей всего (ед.)";
+		zhkh1Field['cell_56'] 	= 	"Подг.транспортных и пешех. тоннелей муниципальный (ед.)";
+		zhkh1Field['cell_57'] 	= 	"Подг. гидро-технич.сооружений всего (ед.)";
+		zhkh1Field['cell_58'] 	= 	"Подг. гидро-технич.сооружений муниципальный (ед.)";
+		zhkh1Field['cell_59'] 	= 	"Газопроводы (км.)";
+		zhkh1Field['cell_60'] 	= 	"Создание запасов топлива уголь (тн.)";
+		zhkh1Field['cell_61'] 	= 	"Создание запасов топлива др. тверд. топл. (тн.)";
+		zhkh1Field['cell_62'] 	= 	"Создание запасов топлива жид. топл. (тн.)";
+		zhkh1Field['cell_63'] 	= 	"Создание запасов топлива газ (т.м<sup>3</sup>)";
+		zhkh1Field['cell_64'] 	= 	"Нетрадиц. источники эл.энергии всего (кВт.)";
+		zhkh1Field['cell_65'] 	= 	"Нетрадиц. источники эл.энергии приливные (кВт.)";
+		zhkh1Field['cell_66'] 	= 	"Нетрадиц. источники эл.энергии солнечные (кВт.)";
+		zhkh1Field['cell_67'] 	= 	"Нетрадиц. источники эл.энергии ветровые (кВт.)";
+		zhkh1Field['cell_68'] 	= 	"Нетрадиц. источники эл.энергии термальные (кВт.)";
+		zhkh1Field['cell_69'] 	= 	"Финан. средства субъекта РФ, выделяемые для подготовки ЖКХ МО к зиме всего (млн.руб.)";
+		zhkh1Field['cell_70'] 	= 	"Финан. средства субъекта РФ, выделяемые для подготовки ЖКХ МО к зиме топливо (млн.руб.)";
+		zhkh1Field['cell_71'] 	= 	"Финан. средства субъекта РФ, выделяемые для подготовки ЖКХ МО к зиме авар.техн.зап. (млн.руб.)";
+		zhkh1Field['cell_72'] 	= 	"Финан. средства субъекта РФ, выделяемые для подготовки ЖКХ МО к зиме стр-во объектов ЖКХ (млн.руб.)";
+		zhkh1Field['cell_73'] 	= 	"Финан. средства субъекта РФ, выделяемые для подготовки ЖКХ МО к зиме кап.р. модерн. (млн.руб.)";
+		zhkh1Field['cell_74'] 	= 	"Финан. средства муниц.образований и предприятий ЖКХ всего (млн.руб.)";
+		zhkh1Field['cell_75'] 	= 	"Финан. средства муниц.образований и предприятий ЖКХ топливо (млн.руб.)";
+		zhkh1Field['cell_76'] 	= 	"Финан. средства муниц.образований и предприятий ЖКХ авар.техн.зап. (млн.руб.)";
+		zhkh1Field['cell_77'] 	= 	"Финан. средства муниц.образований и предприятий ЖКХ стр-во объектов ЖКХ (млн.руб.)";
+		zhkh1Field['cell_78'] 	= 	"Финан. средства муниц.образований и предприятий ЖКХ кап.р. модерн. (млн.руб.)";
+		zhkh1Field['cell_79'] 	= 	"в т.ч. финансовые средства предприятий ЖКХ всего (млн.руб.)";
+		zhkh1Field['cell_80'] 	= 	"в т.ч. финансовые средства предприятий ЖКХ топливо (млн.руб.)";
+		zhkh1Field['cell_81'] 	= 	"в т.ч. финансовые средства предприятий ЖКХ авар.техн.зап. (млн.руб.)";
+		zhkh1Field['cell_82'] 	= 	"в т.ч. финансовые средства предприятий ЖКХ стр-во объектов ЖКХ (млн.руб.)";
+		zhkh1Field['cell_83'] 	= 	"в т.ч. финансовые средства предприятий ЖКХ кап.р. модерн. (млн.руб.)";
+		zhkh1Field['cell_84'] 	= 	"Доп-ные ср-ва из ФБ на подг. к ОЗП (млн.руб.)";
+		zhkh1Field['cell_85'] 	= 	"Задолженость пред.ЖКХ за ранее потребленные ТЭР всего (млн.руб.)";
+		zhkh1Field['cell_86'] 	= 	"Задолженость пред.ЖКХ за ранее потребленные ТЭР уголь (млн.руб.) ";
+		zhkh1Field['cell_87'] 	= 	"Задолженость пред.ЖКХ за ранее потребленные ТЭР жид. топл. (млн.руб.)";
+		zhkh1Field['cell_88'] 	= 	"Задолженость пред.ЖКХ за ранее потребленные ТЭР щепа, дрова (млн.руб.) ";
+		zhkh1Field['cell_89'] 	= 	"Задолженость пред.ЖКХ за ранее потребленные ТЭР теплоэнергия (млн.руб.) ";
+		zhkh1Field['cell_90'] 	= 	"Задолженость пред.ЖКХ за ранее потребленные ТЭР электроэнергия (млн.руб.) ";
+	var toplPril1Field = [];
+		toplPril1Field['cell_3'] 	= 	"Количество [котельных] (всего) шт.";
+		toplPril1Field['cell_4'] 	= 	"Потребность в топливе теплоисточников в отопительный сезон [уголь] (всего), тн.";
+		toplPril1Field['cell_5'] 	= 	"Потребность в топливе теплоисточников в отопительный сезон [жидкое топливо] (всего), тн.";
+		toplPril1Field['cell_6'] 	= 	"Потребность в топливе теплоисточников в отопительный сезон [котельные] (муниц.теплоисточниках), шт.";
+		toplPril1Field['cell_7'] 	= 	"Потребность в топливе теплоисточников в отопительный сезон [уголь] (муниц.теплоисточниках), тн.";
+		toplPril1Field['cell_8'] 	= 	"Потребность в топливе теплоисточников в отопительный сезон [жидкое топливо] (муниц.теплоисточниках), тн.";
+		toplPril1Field['cell_9'] 	= 	"Наличие топлива [уголь] (всего), тн ";
+		toplPril1Field['cell_10'] = 	"Наличие топлива [жидкое топливо] (всего), тн.";
+		toplPril1Field['cell_11'] = 	"Наличие топлива [уголь] (муниц.теплоисточниках), тн ";
+		toplPril1Field['cell_12'] = 	"Наличие топлива [жидкое топливо] (муниц.теплоисточниках), тн.";
+		toplPril1Field['cell_13'] = 	"Суточный расход топлива [уголь] (всего), тн ";
+		toplPril1Field['cell_14'] = 	"Суточный расход топлива [жидкое топливо] (всего), тн.";
+		toplPril1Field['cell_15'] = 	"Суточный расход топлива [уголь] (муниц.теплоисточниках), тн ";
+		toplPril1Field['cell_16'] = 	"Суточный расход топлива [жидкое топливо] (муниц.теплоисточниках), тн.";
+		toplPril1Field['cell_17'] = 	"Запасы топлива в сутках [уголь] (всего), тн ";
+		toplPril1Field['cell_18'] = 	"Запасы топлива в сутках [жидкое топливо] (всего), тн.";
+		toplPril1Field['cell_19'] = 	"Запасы топлива в сутках [уголь] (муниц.теплоисточниках), тн ";
+		toplPril1Field['cell_20'] = 	"Запасы топлива в сутках [жидкое топливо] (муниц.теплоисточниках), тн.";
+		toplPril1Field['cell_21'] = 	"Расход топлива нарастающ.итогом с начала отопит.сезона [уголь] (всего), тн ";
+		toplPril1Field['cell_22'] = 	"Расход топлива нарастающ.итогом с начала отопит.сезона [жидкое топливо] (всего), тн.";
+		toplPril1Field['cell_23'] = 	"Расход топлива нарастающ.итогом с начала отопит.сезона [уголь] (муниц.теплоисточниках), тн ";
+		toplPril1Field['cell_24'] = 	"Расход топлива нарастающ.итогом с начала отопит.сезона [жидкое топливо] (муниц.теплоисточниках), тн.";
+		toplPril1Field['cell_25'] = 	"ФИО паредающего информацию";
+	//var toplPril1Format['i', 'f', 'f', 'i', 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 'f' , 't'  ];	
+	this.panelChangedAdm = function(oldP, newP, evnt){
+//			if(evnt.originalEvent!=undefined)
+		if(oldP!=newP){
+			var manual = (evnt.originalEvent!=undefined) ? true : false;
+	//		console.log(manual);
+			switch(newP){
+				case 'formContaner' :{
+					var formEl = {};
+					$( "#tabs" ).tabs( "disable", "#messContaner" );
+					console.log(cloneMessType);
+					console.log(formName);
+					var contHeader = '';
+					cloneMessId
+					switch(formName){
+						case 'sfo_1':{
+							//console.log('toplPril1');
+							$('#formBox .formHeader').text('Новый отчёт СФО Таблица 1 (Жилой фонд)');
+							$( "#mainForm" ).css({'width':''});
+							$( "#mainForm" ).removeClass('zhkh1 zhkh2 zhkh3');
+						} break;
+						case 'sfo_2':{
+							//console.log('toplPril1');
+							$('#formBox .formHeader').text('Новый отчёт СФО Таблица 2 (Котельные)');
+							$( "#mainForm" ).css({'width':''});
+							$( "#mainForm" ).removeClass('zhkh1 zhkh2 zhkh3');
+						} break;
+						case 'sfo_3':{
+							//console.log('toplPril1');
+							$('#formBox .formHeader').text('Новый отчёт СФО Таблица 3 (Сети)');
+							$( "#mainForm" ).css({'width':''});
+							$( "#mainForm" ).removeClass('zhkh1 zhkh2 zhkh3');
+						} break;
+						case 'sfo_4':{
+							//console.log('toplPril1');
+							$('#formBox .formHeader').text('Новый отчёт СФО Таблица 4 (Финансовые средства на подготовку к зиме ЖКХ)');
+							$( "#mainForm" ).css({'width':''});
+							$( "#mainForm" ).removeClass('zhkh1 zhkh2 zhkh3');
+						} break;
+						case 'sfo_5':{
+							//console.log('toplPril1');
+							$('#formBox .formHeader').text('Новый отчёт СФО Таблица 5 (Топливо)');
+							$( "#mainForm" ).css({'width':''});
+							$( "#mainForm" ).removeClass('zhkh1 zhkh2 zhkh3');
+						} break;
+						case 'toplPril1':{
+							console.log('toplPril1');
+							$('#formBox .formHeader').text('Новый отчёт приложение 1 топливо');
+							$( "#mainForm" ).css({'width':''});
+							$( "#mainForm" ).removeClass('zhkh1 zhkh2 zhkh3');
+
+						} break;
+						case 'zhkh1':{							
+						};
+						case '1zhkh':{
+							$('#formBox .formHeader').text('Новый отчёт Форма 1 ЖКХ');
+							$( "#mainForm" ).css({'width':'800px'});
+							$( "#mainForm" ).removeClass('zhkh3 zhkh2');
+							$( "#mainForm" ).addClass('zhkh1');
+
+//							contHeader = '<h1>Новый отчёт Форма 1 ЖКХ</h1>';
+						} break;
+						case 'zhkh2':{
+							$('#formBox .formHeader').text('Новый отчёт Форма 2 ЖКХ');
+							$( "#mainForm" ).css({'width':'900px'});
+							$( "#mainForm" ).removeClass('zhkh1 zhkh3');
+							$( "#mainForm" ).addClass('zhkh2');
+
+//							contHeader = '<h1>Новый отчёт Форма 1 ЖКХ</h1>';
+						} break;
+						case 'zhkh3':{
+							$('#formBox .formHeader').text('Новый отчёт Форма 3 ЖКХ');
+							$( "#mainForm" ).css({'width':'900px'});
+							$( "#mainForm" ).removeClass('zhkh1');
+							$( "#mainForm" ).addClass('zhkh3');
+
+//							contHeader = '<h1>Новый отчёт Форма 1 ЖКХ</h1>';
+						} break;
+					}
+					formEl = this.getElements(formName, cloneMessId);
+					$("#mainForm ").html('');
+					$("#mainForm ").dform(formEl);
+					cloneMessId	= "";
+//					$("#formSubmit").off('click');
+					$("#formSubmit").on('click' , function (event) {
+						UI.pleaseWait();			
+						var formData = $("#mainForm").serializeJSON();
+						$.post("/spddl/", {type:'addReport', formName:formName, data:formData}, function(str)
+							{
+							UI.pleaseWait();			
+							console.log(str); 			
+							if(str == 1){
+									UI.showMessage('info', 'Отчёт успешно доставлен');
+									$("#mConfirm").on('click' , function (event) {
+											window.location.href = window.location.href; 										
+									});
+								} else {
+									UI.showMessage('error', 'Произошла ошибка в процессе доставки отчёта '+ str);												
+								}			
+						});
+					});	
+				} break;
+				case 'messContaner' :{				
+					$( "#tabs" ).tabs( "disable", "#formContaner" );				
+				} break;
+				case 'zhournalContaner': {
+					$( "#tabs" ).tabs( "disable", "#formContaner" );				
+					$( "#tabs" ).tabs( "disable", "#messContaner" );				
+				} break;
+			}
+
+		}
+	}
+	
+	this.panelChanged = function(oldP, newP, evnt){
+//			if(evnt.originalEvent!=undefined)
+		if(oldP!=newP){
+			var manual = (evnt.originalEvent!=undefined) ? true : false;
+	//		console.log(manual);
+			switch(newP){
+				case 'formContaner' :{
+					var formEl = {};
+					$( "#tabs" ).tabs( "disable", "#messContaner" );
+					if(manual){
+						console.log(manual, cloneMessId);
+						formEl = this.getFormElrments();
+					} else {
+						console.log(manual, cloneMessId);
+						formEl = this.getFormElrments(cloneMessId);	
+						cloneMessId	= "";			
+					}
+					$("#mainForm ").html('');
+					$("#mainForm ").dform(formEl);
+	//				console.log($('#incidentDate'));
+	//				console.log($.timepicker);
+	 
+					$("#formSubmit").off('click');
+					$("#formSubmit").on('click' , function (event) {
+						UI.pleaseWait();			
+						var formData = $("#mainForm ").serializeJSON();
+						$.post("/spddl/", {type:'addForm', data:formData}, function(str)
+							{
+							UI.pleaseWait();			
+							console.log(str); 			
+							if(str == 1){
+								if($('mymap').selector==undefined){
+									UI.showMessage('info', 'Оперативное донесение доставлено');
+									$("#mConfirm").on('click' , function (event) {
+											window.location.href = window.location.href; 										
+									});
+								} else {
+									GISz.checkMessage();
+									UI.togglePanel('', 'formBox', 1, '');
+									UI.showMessage('info', 'Оперативное донесение доставлено');									
+								}
+//									console.log(formData); 			
+								} else {
+									UI.showMessage('error', 'Произошла ошибка в процессе доставки оперативного донесения '+ str);												
+								}			
+						});
+					});	
+					$("#ui-datepicker-div").on('click', function (event) {UI.Keep()});
+					$(".ui-corner-all, .ui-datepicker-calendar, .ui-timepicker-div, .ui-datepicker-buttonpane, .ui-widget-content").on('click', function (event) {UI.Keep()});
+					$(".ui-autocomplete").on('click', function (event) {UI.Keep()});				
+				} break;
+				case 'messContaner' :{				
+				} break;
+				case 'zhournalContaner': {
+					$( "#tabs" ).tabs( "disable", "#messContaner" );				
+				} break;
+			}
+
+		}
+	}
+	this.getFormElrments = function(messId){
+		console.log(messId);
+		var clone = {};
+//		var cloneFields = 
+			if(messId){
+				
+				$(MESS).each(function(indx, element){
+				if(element.messId == messId)
+					clone = element;
+				});
+//			elements1.np.value = clone.np;
+
+			}
+		var NPid = 0, NPname='';
+		if(availableNP.length<1){
+			NPid = homeDistr.id;
+			NPname = homeDistr.name;
+			}
+		else if(messId) {
+			NPid = clone.npId;
+			NPname = clone.np;
+		}
+		console.log(clone);
+				
+		var elements1 = {"action" : "index.html",
+						"method" : "get",
+						"html" :[
+							{
+								"name" : "formODId",
+								"id" : "formODId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  "operMessage"
+								
+							},
+							{
+								"name" : "userId",
+								"id" : "userId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  userId
+								
+							},
+							{
+								"name" : "typeId",
+								"id" : "typeId",
+								"type" : "hidden", 
+								"placeholder" : "",
+								"value" :  ''
+								
+							},
+							{
+								"name" : "orgId",
+								"id" : "orgId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  (messId>0)?clone.orgId:"",
+								
+							},
+							{
+								"name" : "distId",
+								"id" : "distId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  homeDistr.id
+								
+							},
+							{
+								"name" : "npId",
+								"id" : "npId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" : NPid,
+								
+							},
+							{
+								"name" : "distName",
+								"id" : "txt-distName",
+								"caption" : "Муниципальное образование",
+								"type" : "text",
+								"disabled" : "",
+								"placeholder" : "",
+								"value" :  homeDistr.name
+								
+		}]};
+		if(availableNP.length>0)
+			elements1.html.push({
+									"name" : "np",
+									"id" : "np",
+									"caption" : "Населенный пункт",
+									"type" : "text",
+									"placeholder" : "Начинается с ",
+									"value": NPname,
+									"autocomplete" : {				
+										"source" : availableNP,
+										"select" : function(event, ui){
+											console.log(arguments);
+											$("#npId").val(ui.item.value); 
+											$("#np").val(ui.item.label);
+											return false; 
+										},
+										minLength: 0}
+																			
+								});
+		Array.prototype.push.apply(elements1.html, [
+							{
+								"name" : "initiator",
+								"id" : "initiator",
+								"caption" : "ФИО и должность инициатора",
+								"value": (messId>0)?clone.initiator:"",
+								"type" : "text",
+								"placeholder" : "диспетчер, Иванова Анна Сергеевна"								
+							},
+							{
+								"name" : "incidentDate",
+								"id" : "incidentDate",
+								"caption" : "Время и дата нарушения",
+								"type" : "text",
+								"placeholder" : "25.01.2019 09:45",
+								"datetimepicker" : 	{
+									timeFormat: "hh:mm tt",
+									maxDate: 0,
+									showSecond: 0, 
+									showMillisec: null,
+									showMicrosec: null,
+									showTimezone: null,
+									prevText: '<Пред',
+									nextText: 'След>',
+									currentText: 'Сейчас',
+									monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+									'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+									monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн',
+									'Июл','Авг','Сен','Окт','Ноя','Дек'],
+									dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+									dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+									dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+									weekHeader: 'Не',
+									dateFormat: 'dd.mm.yy',
+									firstDay: 1,
+									isRTL: false,
+									showMonthAfterYear: false,
+									yearSuffix: ''
+								}
+							},
+							{
+								"name" : "type",
+								"id" : "type",
+								"value": (messId>0)?clone.np:"",
+								"caption" : "Отрасль ЖКХ",
+								"type" : "select",
+									"options" : {
+										"1" : ((messId>0)&&(clone.zhkhSectorId == 1))?{"selected" : "selected","html" : "Водоснабжение"}:"Водоснабжение",
+										"2" : ((messId>0)&&(clone.zhkhSectorId == 2))?{"selected" : "selected","html" : "Газоснабжение"}:"Газоснабжение",
+										"3" : ((messId>0)&&(clone.zhkhSectorId == 3))?{"selected" : "selected","html" : "Канализация"}:"Канализация",
+										"4" : ((messId>0)&&(clone.zhkhSectorId == 4))?{"selected" : "selected","html" : "Котельные"}:"Котельные",
+										"5" : ((messId>0)&&(clone.zhkhSectorId == 5))?{"selected" : "selected","html" : "Тепловые сети"}:"Тепловые сети",
+										"6" : ((messId>0)&&(clone.zhkhSectorId == 6))?{"selected" : "selected","html" : "Электроснабжение"}:"Электроснабжение"
+									}
+							},
+							
+							{
+								"name" : "reason",
+								"id" : "reason",
+								"caption" : "Причина выхода из строя оборудования",
+								"value": (messId>0)?clone.reason:"",
+								"type" : "text",
+								"placeholder" : "авария"
+							},
+							{
+								"name" : "hardware",
+								"id" : "hardware",
+								"value": (messId>0)?clone.hardware:"",
+								"caption" : "Объект, на котором произошло нарушение",
+								"type" : "text",
+								"placeholder" : ""
+							},
+							{
+								"name" : "potrebiteli",
+								"id" : "userCnt",
+								"value": (messId>0)?clone.consumerNum:"",
+								"caption" : "Общее количество пострадавших потребителей",
+								"type" : "text",
+								"placeholder" : "жителей, домов, соц. объектов, объекты жизнеобеспечения)"
+							}						]);
+		if(availableOrg.length>0)
+			elements1.html.push({
+									"name" : "org",
+									"id" : "org",
+									"caption" : "Наименование предприятия, устраняющего нарушение",
+									"type" : "text",
+									"placeholder" : "Начинается с ",
+									"value":  (messId>0)?clone.orgName:"",
+									"autocomplete" : {				
+										"source" : availableOrg,
+										"select" : function(event, ui){
+//											console.log(arguments);
+											$("#orgId").val(ui.item.value); 
+											$("#org").val(ui.item.label);
+											return false; 
+										},
+										minLength: 0}
+																			
+								});
+		else 
+			elements1.html.push({
+								"name" : "org",
+								"id" : "org",
+								"value": (messId>0)?clone.orgName:"",
+								"caption" : "Наименование предприятия, устраняющего нарушение",
+								"type" : "text",
+								"placeholder" : ""
+							});
+							
+							
+		Array.prototype.push.apply(elements1.html, [
+							{
+								"name" : "bossOfWork",
+								"id" : "bossOfWork",
+								"value": (messId>0)?clone.bossOfWork:"",
+								"caption" : "ФИО и должность руководителя работ по устранению нарушения",
+								"type" : "text",
+								"placeholder" : "Иванов Пётр Сергеевич, главный инженер"
+							},
+							{
+								"name" : "bossOfCity",
+								"id" : "bossOfCity",
+								"value": (messId>0)?clone.bossOfCity:"",
+								"caption" : "ФИО руководителя муниципалитета, контролирующего устранение",
+								"type" : "text",
+								"placeholder" : "Сидоров Антон Ильич"
+							},
+							{
+								"name" : "tempereture",
+								"id" : "tempereture",
+								"value": (messId>0)?clone.tempereture:"",
+								"caption" : "Температура наружного воздуха, С",
+								"type" : "text",
+								"placeholder" : "-5"
+							},
+							{
+								"name" : "badNewsMen",
+								"id" : "badNewsMen",
+								"value": (messId>0)?clone.badNewsMen:"",
+								"caption" : "ФИО, должность лица, несвоевременно передавшего в информацию о нарушении",
+								"type" : "text",
+								"placeholder" : "Петров Иван Сергеевич, главный инженер"
+							}
+						]);
+		
+			console.log(elements1);
+			return elements1;
+		}
+	this.formSended = false;
+	this.showCommentForm = function(messId){
+		var elements1 = {
+						"html" :[
+
+							{
+								"name" : "messId",
+								"id" : "messId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  messId
+								
+							},
+							{
+								"name" : "userId",
+								"id" : "userId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  userId
+								
+							},
+							{
+								"name" : "commBody",
+								"id" : "commBody",
+								"caption" : "Коментарий",
+								"type" : "text",
+								"placeholder" : "Содержимое коментария"
+							},
+							{
+								"name" : "commClose",
+								"id" : "commClose",
+								"type" : "checkboxes",
+								"options" : {
+									"close" : "Закрыть оперативное донесение",
+								}
+							},						
+							{
+								"name" : "commSubmit",
+								"id" : "commSubmit",
+								"type" : "span" ,
+								"html" : " Сохранить "
+							}
+							/*,							
+							{
+								"name" : "commClose",
+								"id" : "commClose",
+								"caption" : "Закрыть оперативное донесение",
+								"type" : "checkboxes",
+								
+							}*/
+							]
+						};
+		$("#commFormF ").html();
+		$("#commForm ").show();
+		$("#commFormF ").dform(elements1);
+		$("#commSubmit").off('click');
+		$("#commSubmit").on('click' , function (event) {
+				UI.pleaseWait();			
+				var formData = $("#commFormF ").serializeJSON();
+				$.post("/spddl/", {type:'addComment', data:formData}, function(str)
+					{
+					UI.pleaseWait();			
+					console.log(str); 			
+					if(str == 1){
+								if($('mymap').selector==undefined){
+									UI.showMessage('info', 'Коментарий успешно доставлен');
+									$("#mConfirm").on('click' , function (event) {window.location.href = window.location.href; });
+								} else {
+									GISz.checkMessage();
+									UI.togglePanel('', 'formBox', 1, '');
+									UI.showMessage('info', 'Коментарий успешно доставлен');									
+								}
+							//console.log(formData); 			
+						} else {
+							UI.showMessage('error', 'Произошла ошибка в процессе доставки коментария '+ str);												
+						}			
+				});
+//			}
+		});
+		
+	}
+	this.showMessAdm = function(formType, messId){
+		//console.log(arguments);
+		$( "#tabs" ).tabs( "enable", "#messContaner" );
+		$( "#tabs" ).tabs( "option", "active", 2 );
+		var content = contentComm = '';
+		switch(formType){
+			case 'toplPril1':{
+				var value = caption = '';
+				$(MESS.toplPril1).each(function(indx, element){
+					if(element.id == messId){
+						//console.log(element);
+						content += "<div class='objTitle' id='panObjTitle'>	Отчёт Топливо Приложение 1 " +  " от " + element.date +" </div>	<div class='objPropertiesContaner'>";
+						for (key in toplPril1Field){
+							if((element[key]!=null)&&(element[key]!=undefined)&&(key!='comments')){
+								value = element[key];
+								caption = ROUT.str_replace( '(', '<span class="hilight_2">', ROUT.str_replace( '[', '<span class="hilight_1">', ROUT.str_replace( ')', '</span>', ROUT.str_replace( ']', '</span>', toplPril1Field[key] ))));
+								content += "<div   class='objPropItem'> <div class='objPropName'>" + caption + 
+							"</div><div class='objPropValue p_valueSelectType'>" + value + "</div></div>";
+							}						
+						}					
+					}
+				});						
+			} break;
+			case 'zhkh1':{
+				var value1 = value2 = value3 = value4 = '';
+				$(MESS.zhkh1).each(function(indx, element){
+					if(element[0].sendDate == messId){
+						//console.log(element);
+						content += "<div class='objTitle' id='panObjTitle'>	Отчёт по форме 1-ЖКХ " +  " от " + element[0].date +" </div>	<div class='objPropertiesContaner'>";
+						content += "<div   class='objPropItem'> <div class='objPropName'></div><div class='objPropValue p_valueSelectType'><span class='rowValue hilight_1'>всего</span><span class='rowValue hilight_1'>план года</span><span class='rowValue hilight_1'>факт</span><span class='rowValue hilight_1'>кап.рем., реконстр.</span></div></div>";
+						for (key in zhkh1Field){
+							if((element[0][key]!=null)&&(element[0][key]!=undefined)&&(key!='comments')){
+								value1 = element[0][key];
+								value2 = element[1][key];
+								value3 = element[2][key];
+								value4 = element[3][key];
+								caption = ROUT.str_replace( '(', '<span class="hilight_2">', ROUT.str_replace( '[', '<span class="hilight_1">', ROUT.str_replace( ')', '</span>', ROUT.str_replace( ']', '</span>', zhkh1Field[key] ))));
+								content += "<div   class='objPropItem'> <div class='objPropName'>" + caption + 
+							"</div><div class='objPropValue p_valueSelectType'><span class='rowValue'>" + value1 + "</span><span class='rowValue'>" + value2 + "</span><span class='rowValue'>" + value3 + "</span><span class='rowValue'>" + value4 + "</span></div></div>";
+							}						
+						}					
+					}					
+				});				
+			} break;
+		/*$(MESS).each(function(indx, element){
+		});*/
+		}
+		content += "<div class='commAdd'><span class='activeButton' title='Создать новвый отчёт по образцу этого' id='cloneMess'> новый по образцу </span>";
+		$('#messBody').html(content + contentComm);
+		$('#commAd').on('click', function (event) { FORM.showCommentForm(messId); /*FORM.showCommentForm(messId));*/ }) ;
+		$('#cloneMess').on('click', function (event) {
+			event.stopPropagation();	
+			cloneMessId = messId; console.log('cloneMessId is ' + cloneMessId);
+			//console.log('cloneMessType is ' + formType);
+			formName = formType; 
+			$("#tabs" ).tabs( "enable", "#formContaner" );
+			$("#tabs").tabs( "option", "active", 1 ); 
+			}) ;
+	}
+			
+	this.showMess = function(messId){
+		$( "#tabs" ).tabs( "enable", "#messContaner" );
+		$( "#tabs" ).tabs( "option", "active", 2 );
+		var content = contentComm = '';
+		$(MESS).each(function(indx, element){
+			var value = '';
+			if(element.messId == messId){
+				console.log(element);
+				if(element.np == undefined){
+					if((element.npId>0)&&(availableNP.length > 0)){
+						$(availableNP).each(function(index, el){
+						if (el.value == element.npId)
+							element.np = el.label;
+						});
+					}
+					else element.np = '';
+				}
+				content += "<div class='objTitle' id='panObjTitle'>	Донесение " +  " от " + element.incidentDate + " (" + element.zhkhSectorName  + '  ' +  element.np + ") </div>	<div class='objPropertiesContaner'>";
+						for (key in mesField){
+							if((element[key]!=null)&&(element[key]!=undefined)&&(key!='comments')){
+								if(key == 'status')
+									value = (element[key]==1) ? 'Активное': 'В архиве';
+								else 
+									value = element[key];
+								content += "<div   class='objPropItem'> <div class='objPropName'>" + mesField[key] + 
+							"</div><div class='objPropValue p_valueSelectType'>" + value + "</div></div>";
+							} else if ((key =='comments')&&(element[key]!=0)) {
+								console.log(element[key]);
+								contentComm += "<h2> " + mesField[key] + "</h2>" + '<div class="commDateH">Дата добавления</div><div class="commBodyH">Содержание</div><div class="commAuthH">Автор</div>';
+								element[key].forEach(function(el, index, arr){
+									contentComm += "<div class='commentItem'><div class='commDate'>" + el.date + "</div><div class='commBody'>"
+										+ el.text + "</div><div class='commAuth'>" +  el.user_name + "</div></div>" ;
+								});
+							}
+					}
+				content += "<div class='commAdd'><span class='activeButton' title='Создать новое оперативное донесение по образцу этого' id='cloneMess'> новое по образцу </span>";
+				if(element.status==1)
+					content += "<span class='activeButton' title='добавить комментарий к денесению' id='commAd'> добавить комментарий </span>";
+				content += "</div><div id='commForm'><form  id='commFormF' ></form> </div>";
+				content += "</div>";
+			}
+		});
+		
+		$('#messBody').html(content + contentComm);
+		$('#commAd').on('click', function (event) { FORM.showCommentForm(messId); /*FORM.showCommentForm(messId));*/ }) ;
+		$('#cloneMess').on('click', function (event) {event.stopPropagation();	cloneMessId = messId; $("#tabs").tabs( "option", "active", 1 ); }) ;
+	}
+	this.genMessListAdm = function(lId){
+		var content='';
+		content +="<h1>Создать отчёт</h1><div class='commAdd' style='margin: 5px 0px 15px 0px;'>"  + 
+					"<div><span class='activeButton' title='Создать новый отчёт по топливу Приложение 1' id='sfo_1'> Отчет в СФО. Таблица 1 </span>" + 
+					"<span class='activeButton' title='Создать новый отчёт по топливу Приложение 2' id='sfo_2'> Отчет в СФО. Таблица 2 </span>" + 
+					"<span class='activeButton' title='Создать новый отчёт по топливу Приложение 3' id='sfo_3'>  Отчет в СФО. Таблица 3 </span>" + 
+					"<span class='activeButton' title='Создать новый отчёт по топливу Приложение 4' id='sfo_4'>  Отчет в СФО. Таблица 4 </span>" + 
+					"<span class='activeButton' title='Создать новый отчёт по топливу Приложение 5' id='sfo_5'>  Отчет в СФО. Таблица 5 </span></div>" + 
+					"<div><span class='activeButton' title='Создать новый отчёт по топливу Приложение 1' id='toplPril1'> Топливо Прил. 1 </span></div>" + 
+					"<div><span class='activeButton' title='Создать новый отчёт по форме 1-ЖКХ' id='1zhkh'> Форма 1-ЖКХ </span>"+
+					"<span class='activeButton' title='Создать новый отчёт по форме 2-ЖКХ' id='zhkh2'> Форма 2-ЖКХ </span>" +
+					"<span class='activeButton' title='Создать новый отчёт по форме 3-ЖКХ' id='zhkh3'> Форма 3-ЖКХ </span>" +
+					"</div>";
+		content +="</div>";
+		$.post("/spddl/", {type:'getRepAll', formName:'toplPril1', distr:lId}, function(str){
+			MESS.toplPril1 = JSON.parse(str);
+			console.log(MESS.toplPril1);
+			if((MESS.toplPril1==0)||(MESS.toplPril1.length == 0))
+				content +='<h1>Отчёты Топливо Приложение 1 отсутствуют</h1>';
+			else {				
+				content +='<h1>Архив отчётов Топливо Приложение 1</h1>';						
+				$(MESS.toplPril1).each(function(indx, element){
+					content += "<div class='message '><span class='activeLink showMess' id='toplPril1_"+element.id+"'>Отчёт  " +  " от " + element.date + "</span></div>"; 
+					});
+				}
+		});
+		setTimeout(function(){
+		$.post("/spddl/", {type:'getRepAll', formName:'1zhkh', distr:lId}, function(str){
+			MESS.zhkh1 = JSON.parse(str);
+			console.log(MESS.zhkh1);
+			if((MESS.zhkh1==0)||(MESS.zhkh1.length == 0))
+				content +='<h1>Отчёты по Форме ЖКХ 1 отсутствуют</h1>';
+			else {
+				content +='<h1>Архив отчётов по Форме ЖКХ 1 </h1>';						
+				$(MESS.zhkh1).each(function(indx, element){
+						content += "<div class='message '><span class='activeLink showMess' id='zhkh1_"+element[0].sendDate+"'>Отчёт  " +  " от " + element[0].date + "</span></div>"; 
+					});
+				}
+		$("#mainList").html(content);
+		$('.activeButton').on('click', function (event) { formName = event.currentTarget.id; $( "#tabs" ).tabs( "enable", "#formContaner" ); $("#tabs").tabs( "option", "active", 1 ); }) ;
+		$(".showMess").on('click', function (event) { strArr1 = event.currentTarget.id.split('_'); FORM.showMessAdm(strArr1[0], strArr1[1])});
+		});}, 500);
+
+	}	
+	this.genMessListDisp = function(lId){
+		$.post("/spddl/", {type:'getODLists', distr:lId}, function(str){
+			var content='';
+			var open =   0;
+			var closed = 0;
+			var DATA = JSON.parse(str);
+			availableNP=[];
+			availableOrg=[];			
+			$(DATA.npList).each(function(indx, element){
+				availableNP.push({label:element.l_name , value:element.l_id});
+			});
+			$(DATA.orgList).each(function(indx, element){
+				availableOrg.push({label:element.name , value:element.id});
+			});
+			console.log('ddd');
+			console.log(availableNP);
+			console.log(availableOrg);
+	
+			if(DATA.messList ==0)
+				content='<h1>Оперативные донесения отсутствуют</h1>';
+			else {
+				$(DATA.messList).each(function(indx, element){
+					console.log(element.status, open, closed);
+					if((element.status>0)&&(open==0)){
+					content +='<h3>Активные донесения</h3>';						
+						open++;
+					}else if ((element.status==0)&&(closed==0)){
+					content +='<h3>Архив донесений</h3>';						
+						closed++;						
+					}
+					console.log(element);
+					if((element.npId>0)&&(availableNP.length > 0)){
+						$(availableNP).each(function(index, el){
+						if (el.value == element.npId)
+							element.np = el.label;
+						});
+	//					console.log(element.npId, element.np );
+						}
+					else element.np = '';
+						content += "<div class='message '><span class='activeLink showMess' id='mess_"+element.messId+"'>Донесение " +  " от " + element.incidentDate + " (" + element.zhkhSectorName  + '  ' +  element.np + ") </span></div>"; 
+				});
+			}
+			$("#mainList").html(content);
+			$("#mainList").html(content);
+			$(".showMess").on('click', function (event) { FORM.showMess(ROUT.GetStrPrt(event.currentTarget.id, '_', 1)); }) ;
+		});		
+	}
+	this.genMessListOperator = function(lId){
+		$.post("/spddl/", {type:'getMessAll', distr:lId}, function(str){
+			var content='';
+			var open =   0;
+			var closed = 0;
+			MESS = JSON.parse(str);
+			if(MESS ==0)
+				content='<h1>Оперативные донесения отсутствуют</h1>';
+			else {				
+				$(MESS).each(function(indx, element){
+//					console.log(element.status, open, closed);
+					if((element.status>0)&&(open==0)){
+					content +='<h3>Активные донесения</h3>';						
+						open++;
+					}else if ((element.status==0)&&(closed==0)){
+					content +='<h3>Архив донесений</h3>';						
+						closed++;						
+					}
+//					console.log(element);
+					if((element.npId>0)&&(availableNP.length > 0)){
+						$(availableNP).each(function(index, el){
+						if (el.value == element.npId)
+							element.np = el.label;
+						});
+	//					console.log(element.npId, element.np );
+						}
+					else element.np = '';
+						content += "<div class='message '><span class='activeLink showMess' id='mess_"+element.messId+"'>Донесение " +  " от " + element.incidentDate + " (" + element.zhkhSectorName  + '  ' +  element.np + ") </span></div>"; 
+				});
+			}
+			$("#mainList").html(content);
+			$(".showMess").on('click', function (event) { FORM.showMess(ROUT.GetStrPrt(event.currentTarget.id, '_', 1)); }) ;
+		});		
+	}
+	this.mesgList = function(lId){
+		var layer = ULayers[ULayerIndex[lId]];	
+		UI.toggleLockingPad();
+		UI.toCenter('formBox');	
+		UI.togglePanel('', 'formBox', 1, '');
+		$('#formBox_title_text').text('Журнал оперативных донесений. ' + layer.name);
+		$('#formSubmit').text(' Закрыть ');
+		$('#formSubmit').on('click', function (event) {$('#closePanelImg').trigger('click');});		
+		$("#mainForm ").html('');
+		$("#mainForm ").hide('');
+		var content = '';
+		$(layer.message).each(function(indx, element){
+			content += "<div class='message '><span class='activeLink'>Донесение №"+ (indx+1) + " </span></div>"; //+ element.
+		});
+		$("#mainList").html(content);
+		$("#mainList").show('');
+//		$("#formSubmit").css('display:none');
+		
+		console.log(layer);
+//		alert(lId);
+	}
+	this.getElements = function(type, repId=0){
+		//var key = 'cell_50';
+		var clone = {};
+		var arr=[], arrName = '';
+		var elements1 = {"action" : "index.html",
+						"method" : "get",
+						"html" :[
+							{
+								"name" : "frm_type",
+								"id" : "frm_type",
+								"type" : "hidden",
+								"value" :  type								
+							},
+							{
+								"name" : "frm_userId",
+								"id" : "frm_userId",
+								"type" : "hidden",
+								"value" :  userId								
+							},
+							{
+								"name" : "frm_distId",
+								"id" : "frm_distId",
+								"type" : "hidden",
+								"value" :  homeDistr.id								
+							},
+							{
+								"name" : "frm_distName",
+								"id" : "frm_distName",
+								"type" : "hidden",
+								"value" :  homeDistr.name								
+							}
+							]};
+		console.log(arguments);
+		switch(type){
+			case 'sfo_1' :{
+				if(arrName == ''){arrName = 'sfoField_1', arr = sfoField_1;}
+				};
+			case 'sfo_2' :{
+				if(arrName == ''){arrName = 'sfoField_2', arr = sfoField_2;}
+				};
+			case 'sfo_3' :{
+				if(arrName == ''){arrName = 'sfoField_3', arr = sfoField_3;}
+				};
+			case 'sfo_4' :{
+				if(arrName == ''){arrName = 'sfoField_4', arr = sfoField_4;}
+				};
+			case 'sfo_5' :{
+//				console.log(type, arr.length, arr);
+				if (arrName == ''){arrName = 'sfoField_4', arr = sfoField_5;}
+				if(repId>0){
+					console.log(repId);
+					$(MESS.sfo_1).each(function(indx, element){
+						if(element.id == repId){
+							clone = element;
+						}
+					});					
+				}
+//				var arr = sfoField_1;
+				var cnt = 0;
+				var placeHolder = 'Значение'; var caption = '';
+				for (key in arr){
+//					var placeHolder = '';
+					if(ROUT.is_string(arr[key])){
+						caption = ROUT.str_replace( '(', '<span class="hilight_2">', ROUT.str_replace( '[', '<span class="hilight_1">', ROUT.str_replace( ')', '</span>', ROUT.str_replace( ']', '</span>', arr[key] ))));
+						if(repId>0) console.log(key, clone.key, clone[key]);
+						elements1.html.push({
+							"name" : key,
+							"id" : key,
+							"caption" : caption,
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"value" : (repId>0)?clone[key]:Math.random()*100
+						});
+						cnt ++;
+						}
+					}
+
+
+			} break;
+			case 'toplPril1' :{
+				if(repId>0){
+					console.log(repId);
+					$(MESS.toplPril1).each(function(indx, element){
+						if(element.id == repId){
+							clone = element;
+						}
+					});					
+				}
+				var arr = toplPril1Field;
+				var cnt = 0;
+				var placeHolder = 'Значение'; var caption = '';
+//							console.log('clone is');
+//							console.log(clone);
+				for (key in arr){
+					/*switch(toplPril1Format[cnt]){
+						case 'i' : {placeHolder = '10'} break;
+						case 'f' : {placeHolder = '10.25'} break;
+						case 't' : {placeHolder = 'ФИО'} break;
+					}*/
+//					var placeHolder = '';
+					if(ROUT.is_string(arr[key])){
+						caption = ROUT.str_replace( '(', '<span class="hilight_2">', ROUT.str_replace( '[', '<span class="hilight_1">', ROUT.str_replace( ')', '</span>', ROUT.str_replace( ']', '</span>', arr[key] ))));
+//						caption = ROUT.str_replace( '(', '', ROUT.str_replace( '[', '', ROUT.str_replace( ')', '', ROUT.str_replace( ']', '', arr[key] ))));
+//						caption = arr[key];
+						if(repId>0) console.log(key, clone.key, clone[key]);
+						elements1.html.push({
+							"name" : key,
+							"id" : key,
+							"caption" : caption,
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"value" : (repId>0)?clone[key]:""
+						});
+						cnt ++;
+						}
+					}
+
+
+			} break;
+			case '1zhkh' :{};
+			case 'zhkh1' :{
+				if(repId>0){
+					console.log(repId);
+					$(MESS.zhkh1).each(function(indx, element){
+						if(element[0].sendDate == repId){
+							clone = element;
+						}
+					});					
+				}
+				console.log('clone is');
+				console.log(clone);
+				var arr = zhkh1Field;
+				var placeHolder = 'Значение'; var caption = '';
+				var cnt = 0;
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeaderStart",
+							"html" : ""
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "всего"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "план года"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "факт"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "кап.рем., реконстр."
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowEnd"
+						});
+				for (key in arr){
+					if(ROUT.is_string(arr[key])){
+						caption = ROUT.str_replace( '(', '<span class="hilight_2">', ROUT.str_replace( '[', '<span class="hilight_1">', ROUT.str_replace( ')', '</span>', ROUT.str_replace( ']', '</span>', arr[key] ))));
+
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowNum",
+							"html" : (cnt+1)
+						});
+						elements1.html.push({
+							"name" : key + "_1",
+							"id" : key + "_1",
+							"caption" : caption,
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "всего",
+							"class" : "rowCell rowStart",
+							"value" : (repId>0)?clone[0][key]:"" //Math.random()*1000
+						});
+						elements1.html.push({
+							"name" : key + "_2",
+							"id" : key + "_2",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "план года",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[1][key]:""
+						});
+						elements1.html.push({
+							"name" : key + "_3",
+							"id" : key + "_3",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "факт",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[2][key]:""
+						});
+						elements1.html.push({
+							"name" : key + "_4",
+							"id" : key + "_4",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "кап.рем., реконстр.",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[3][key]:""
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowEnd"
+						});
+						cnt ++;
+						}
+					}				
+			}			
+			case 'zhkh3' :{
+				if(repId>0){
+					console.log(repId);
+					$(MESS.zhkh3).each(function(indx, element){
+						if(element[0].sendDate == repId){
+							clone = element;
+						}
+					});					
+				}
+/*				console.log('clone is');
+				console.log(clone);
+				console.log(zhkh3Field);*/
+				var arr = zhkh3Field;
+				var placeHolder = 'Значение'; var caption = '';
+				var cnt = 0;
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeaderStart",
+							"html" : ""
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Фактически поставлено с начала отопительного сезона"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Фактически израсходовано с начала отопительного сезона"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Объемы запасов топлива на конец отчетного периода"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Объем договорных обязательств по поставкам топлива"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Объем поставок местного топлива"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Среднесложившаяся по договорам стоимость топлива"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowEnd"
+						});
+//				arr.forEach(function(key, indx, arr){	
+				for (key in arr){	
+//					console.log(arr[key]);
+					if(ROUT.is_string(arr[key].label)){
+						caption = ROUT.str_replace( '(', '<span class="hilight_2">', ROUT.str_replace( '[', '<span class="hilight_1">', ROUT.str_replace( ')', '</span>', ROUT.str_replace( ']', '</span>', arr[key].label ))));
+
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowNum",
+							"html" : (cnt+1)
+						});
+						elements1.html.push({
+							"name" : key + "_1",
+							"id" : key + "_1",
+							"caption" : caption,
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Фактически поставлено с начала отопительного сезона",
+							"class" : "rowCell rowStart",
+							"value" : (repId>0)?clone[0][key]:Math.random()*1000//"" //Math.random()*1000
+						});
+						elements1.html.push({
+							"name" : key + "_2",
+							"id" : key + "_2",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Фактически израсходовано с начала отопительного сезона",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[1][key]:Math.random()*1000//""
+						});
+						elements1.html.push({
+							"name" : key + "_3",
+							"id" : key + "_3",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Объемы запасов топлива на конец отчетного периода",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[2][key]:Math.random()*1000//""
+						});
+						elements1.html.push({
+							"name" : key + "_4",
+							"id" : key + "_4",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Объем договорных обязательств по поставкам топлива",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[3][key]:Math.random()*1000//""
+						});
+						elements1.html.push({
+							"name" : key + "_5",
+							"id" : key + "_5",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Объем поставок местного топлива",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[4][key]:Math.random()*1000//""
+						});
+						elements1.html.push({
+							"name" : key + "_6",
+							"id" : key + "_6",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Среднесложившаяся по договорам стоимость топлива",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[3][key]:Math.random()*1000//""
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowEnd"
+						});
+						cnt ++;
+						}
+					}				
+			}
+			case 'zhkh2' :{
+				if(repId>0){
+					console.log(repId);
+					$(MESS.zhkh2).each(function(indx, element){
+						if(element[0].sendDate == repId){
+							clone = element;
+						}
+					});					
+				}
+/*				console.log('clone is');
+				console.log(clone);
+				console.log(zhkh3Field);*/
+				var arr = zhkh2Field;
+				var placeHolder = 'Значение'; var caption = '';
+				var cnt = 0;
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeaderStart",
+							"html" : ""
+						});
+						for (key in zhkh2Head){	
+		//					console.log(arr[key]);
+							if(ROUT.is_string(zhkh2Head[key].label)){
+								elements1.html.push({
+									"type" : "div",
+									"class" : "rowHeader",
+									"html" : zhkh2Head[key].label
+								});
+								
+							}
+						}
+/*						
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Фактически поставлено с начала отопительного сезона"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Фактически израсходовано с начала отопительного сезона"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Объемы запасов топлива на конец отчетного периода"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Объем договорных обязательств по поставкам топлива"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Объем поставок местного топлива"
+						});
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowHeader",
+							"html" : "Среднесложившаяся по договорам стоимость топлива"
+						});*/
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowEnd"
+						});
+//				arr.forEach(function(key, indx, arr){	
+				for (key in arr){	
+//					console.log(arr[key]);
+					if(ROUT.is_string(arr[key].label)){
+						caption = ROUT.str_replace( '(', '<span class="hilight_2">', ROUT.str_replace( '[', '<span class="hilight_1">', ROUT.str_replace( ')', '</span>', ROUT.str_replace( ']', '</span>', arr[key].label ))));
+
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowNum",
+							"html" : (cnt+1)
+						});
+						elements1.html.push({
+							"name" : key + "_1",
+							"id" : key + "_1",
+							"caption" : caption,
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Фактически поставлено с начала отопительного сезона",
+							"class" : "rowCell rowStart",
+							"value" : (repId>0)?clone[0][key]:Math.random()*1000//"" //Math.random()*1000
+						});
+						for (key1 in zhkh2Head){	
+
+							elements1.html.push({
+								"name" : key + "_" + key1 ,
+								"id" : key + "_" + key1,
+		//						"caption" : "",
+								"placeholder" : placeHolder,
+								"type" : "text",
+								"title" : zhkh2Head[key1],
+								"class" : "rowCell2",								
+								"value" : (repId>0)?clone[1][key]:Math.random()*1000//""
+							});
+						}
+	/*					elements1.html.push({
+							"name" : key + "_3",
+							"id" : key + "_3",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Объемы запасов топлива на конец отчетного периода",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[2][key]:Math.random()*1000//""
+						});
+						elements1.html.push({
+							"name" : key + "_4",
+							"id" : key + "_4",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Объем договорных обязательств по поставкам топлива",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[3][key]:Math.random()*1000//""
+						});
+						elements1.html.push({
+							"name" : key + "_5",
+							"id" : key + "_5",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Объем поставок местного топлива",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[4][key]:Math.random()*1000//""
+						});
+						elements1.html.push({
+							"name" : key + "_6",
+							"id" : key + "_6",
+	//						"caption" : "",
+							"placeholder" : placeHolder,
+							"type" : "text",
+							"title" : "Среднесложившаяся по договорам стоимость топлива",
+							"class" : "rowCell",
+							"value" : (repId>0)?clone[3][key]:Math.random()*1000//""
+						});*/
+						elements1.html.push({
+							"type" : "div",
+							"class" : "rowEnd"
+						});
+						cnt ++;
+						}
+					}				
+			}
+			
+			
+		}
+		console.log(elements1);
+		return elements1;
+	}
+/*	var searchNP(lid, str){
+		$(ULayers).each(function(indx, element){
+			if((element.parId == lId) && (element.name.indexOf(str) == 0)){
+				
+		});
+	}*/
+/*	this.newFormOperator = function(){
+		console.log('newFormSimple');				
+
+	$.dform.subscribe("datetimepicker",
+		function(options, type)
+		{
+			if (type == "text") {
+				this.datetimepicker(options);
+			}
+			}, $.isFunction($.fn.datetimepicker)
+		);
+	var day = new Date();
+	var month = day.getMonth()+1;
+		var elements1 = {"action" : "index.html",
+						"method" : "get",
+						"html" :[
+							{
+								"name" : "formODId",
+								"id" : "formODId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  "operMessage"
+								
+							},
+							{
+								"name" : "userId",
+								"id" : "userId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  userId
+								
+							},
+							{
+								"name" : "typeId",
+								"id" : "typeId",
+								"type" : "hidden", 
+								"placeholder" : "",
+								"value" :  ''
+								
+							},
+							{
+								"name" : "orgId",
+								"id" : "orgId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  ''
+								
+							},
+							{
+								"name" : "distId",
+								"id" : "distId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  homeDistr.id
+								
+							},
+							{
+								"name" : "npId",
+								"id" : "npId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" : ""
+								
+							},
+							{
+								"name" : "distName",
+								"id" : "txt-distName",
+								"caption" : "Наименование муниципального образования",
+								"type" : "text",
+								"placeholder" : "",
+								"value" :  homeDistr.name
+								
+							},
+							{
+								"name" : "np",
+								"id" : "np",
+								"caption" : "Наименование населенного пункта, на территории которого произошло технологическое нарушение 1",
+								"type" : "text",
+								"placeholder" : "Начинается с ",
+								"autocomplete" : {									
+									"source" : availableNP,
+									"select" : function(event, ui){
+										console.log(arguments);
+										$("#npId").val(ui.item.value); 
+										$("#np").val(ui.item.label);
+										return false; 
+									},
+									minLength: 0}
+																		
+							},
+							{
+								"name" : "initiator",
+								"id" : "initiator",
+								"caption" : "Должность и ФИО от кого поступило сообщение о технологическом нарушении",
+								"type" : "text",
+								"placeholder" : "диспетчер, Иванова Анна Сергеевна"								
+							},
+							{
+								"name" : "incidentDate",
+								"id" : "incidentDate",
+								"caption" : "Время и дата нарушения",
+								"type" : "text",
+								"placeholder" : "25.01.2018 09:45",
+								 "datetimepicker" : {
+									 "timeFormat": "hh:mm tt",
+									 "regional":"ru"									 
+								  }							
+							},
+							{
+								"name" : "type",
+								"id" : "type",
+								"caption" : "Отрасль ЖКХ",
+								"type" : "select",
+									"options" : {
+										"1" : "Водоснабжение",
+										"2" : "Газоснабжение",
+										"3" : "Канализация",
+										"4" : "Котельные",
+										"5" : "Тепловые сети",
+										"6" : "Электроснабжение"
+									}
+							},
+							
+							{
+								"name" : "reason",
+								"id" : "reason",
+								"caption" : "Причина выхода из строя оборудования",
+								"type" : "text",
+								"placeholder" : "авария"
+							},
+							{
+								"name" : "hardware",
+								"id" : "hardware",
+								"caption" : "Объект, на котором произошло нарушение",
+								"type" : "text",
+								"placeholder" : ""
+							},
+							{
+								"name" : "potrebiteli",
+								"id" : "userCnt",
+								"caption" : "Общее количество пострадавших потребителей",
+								"type" : "text",
+								"placeholder" : "жителей, домов, соц. объектов, объекты жизнеобеспечения)"
+							},
+							{
+								"name" : "org",
+								"id" : "org",
+								"caption" : "Наименование предприятия, устраняющего нарушение",
+								"type" : "text",
+								"placeholder" : ""
+							},
+							{
+								"name" : "bossOfWork",
+								"id" : "bossOfWork",
+								"caption" : "ФИО и должность руководителя работ по устранению нарушения",
+								"type" : "text",
+								"placeholder" : "Иванов Пётр Сергеевич, главный инженер"
+							},
+							{
+								"name" : "bossOfCity",
+								"id" : "bossOfCity",
+								"caption" : "ФИО руководителя муниципалитета, контролирующего устранение",
+								"type" : "text",
+								"placeholder" : "Сидоров Антон Ильич"
+							},
+							{
+								"name" : "tempereture",
+								"id" : "tempereture",
+								"caption" : "Температура наружного воздуха, С",
+								"type" : "text",
+								"placeholder" : "-5"
+							},
+							{
+								"name" : "badNewsMen",
+								"id" : "badNewsMen",
+								"caption" : "ФИО, должность лица, несвоевременно передавшего в информацию о нарушении",
+								"type" : "text",
+								"placeholder" : "Петров Иван Сергеевич, главный инженер"
+							}
+						]};
+	
+		$("#mainForm ").dform(elements1);
+		$("#formSubmit").off('click');
+		$("#formSubmit").on('click' , function (event) {
+				UI.pleaseWait();			
+				var formData = $("#mainForm ").serializeJSON();
+				$.post("/spddl/", {type:'addForm', data:formData}, function(str)
+					{
+					UI.pleaseWait();			
+					console.log(str); 			
+					if(str == 1){
+							UI.showMessage('info', 'Оперативное донесение доставлено');
+							$("#mConfirm").on('click' , function (event) {window.location.href = window.location.href; })
+							console.log(formData); 			
+						} else {
+							UI.showMessage('error', 'Произошла ошибка в процессе доставки оперативного донесения '+ str);												
+						}			
+				});
+//			}
+		});
+		
+	};*/
+/*	this.newForm = function(obj){
+		console.log('newForm');				
+//		console.log(arguments);
+		availableTags = [
+		  {label:"Испанский", value:"es"},
+		  {label:"Итальянский", value:"it"},
+		  {label:"Английский", value:"en"},
+		  {label:"Китайский", value:"zh"},
+		  {label:"Русский", value:"ru"}
+		];		
+		$( "#txt-city" ).autocomplete({
+		  source: availableTags
+		});
+		var layer = ULayers[ULayerIndex[obj]];	
+		$('#formBox_title_text').text('Новое оперативное донесение');
+		$('#formSubmit').text(' Отправить ');
+		$('#formBox_ok_btn span').on('click', function (event) {$('#closePanelImg').trigger('click');});		
+		UI.toggleLockingPad();
+		UI.toCenter('formBox');	
+		UI.togglePanel('', 'formBox', 1, '');
+		$.dform.subscribe("datetimepicker",
+			function(options, type)
+			{
+				if (type == "text") {
+					this.datetimepicker(options);
+//					this.datetimepicker.regional['ru'];
+				}
+				}, $.isFunction($.fn.datetimepicker));
+			
+		var day = new Date();
+		var month = day.getMonth()+1;
+		var createTime = day.getDate() + ' ' + month + ' ' +  day.getFullYear() +
+			' ' +  day.getHours() + ':' +  day.getMinutes();
+		var elements1 = {"action" : "index.html",
+						"method" : "get",
+						"html" :[
+							{
+								"name" : "formId",
+								"id" : "hdn-formId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  "operMessage"
+								
+							},
+							{
+								"name" : "createTime",
+								"id" : "createTime",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  createTime
+								
+							},
+							{
+								"name" : "userId",
+								"id" : "userId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  userId
+								
+							},
+							{
+								"name" : "distId",
+								"id" : "distId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" :  layer.id
+								
+							},
+							{
+								"name" : "npId",
+								"id" : "npId",
+								"type" : "hidden",
+								"placeholder" : "",
+								"value" : ""
+								
+							},
+							{
+								"name" : "distName",
+								"id" : "txt-distName",
+								"caption" : "Наименование муниципального образования",
+								"type" : "text",
+								"placeholder" : "",
+								"value" :  layer.name
+								
+							},
+							{
+								"name" : "np",
+								"id" : "np",
+								"caption" : "Наименование населенного пункта, на территории которого произошло технологическое нарушение",
+								"type" : "text",
+								"placeholder" : "",
+								"placeholder" : "Начинается с ",
+								"autocomplete" : {									
+									"source" : function(request, response){
+										var searched= [];
+										$(ULayers).each(function(indx, item){
+											if((item.parId == layer.id) && (item.name.toLowerCase().indexOf(request.term) >= 0)){
+												searched.push({label: item.name, value: item.id});
+											}
+										});
+										response(	$(searched).each(function(indx, item){
+												return {label: item.label, value: item.value};
+												}));
+
+									},
+									"select" : function(event, ui){
+										console.log(arguments);
+										$("#npId").val(ui.item.value); 
+										$("#np").val(ui.item.label);
+										return false; 
+									},
+									minLength: 0}
+																		
+							},
+							{
+								"name" : "initiator",
+								"id" : "txt-initiator",
+								"caption" : "Должность и ФИО от кого поступило сообщение о технологическом нарушении",
+								"type" : "text",
+								"placeholder" : "диспетчер, Ивановв Анна Сергеевна",
+								"validate" : {
+									"required" : true,
+									"minlength" : 10,
+									"messages" : {
+										"required" : "Необходимо заполнить"
+									}
+								}
+								
+							},
+							{
+								"name" : "incidentDate",
+								"id" : "incidentDate",
+								"caption" : "Время и дата нарушения",
+								"type" : "text",
+								"placeholder" : "25.01.2018 09:45",
+								 "datetimepicker" : {
+									 "timeFormat": "hh:mm tt",
+									 "regional":"ru"									 
+								  }							
+							},
+							{
+								"name" : "type",
+								"id" : "type",
+								"caption" : "Пострадавшая инфраструктура",
+								"type" : "select",
+								"options" : {
+									"waterOut" : "Водоотведение",
+									"waterIn" : "Водоснабжение",
+									"electricity" : "Электричество",
+									"heat" : "Теплоснабжение"
+								}							
+							},
+							{
+								"name" : "reason",
+								"id" : "reason",
+								"caption" : "Причина выхода из строя оборудования",
+								"type" : "text",
+								"placeholder" : "авария"
+							},
+							{
+								"name" : "hardware",
+								"id" : "hardware",
+								"caption" : "Наименование оборудования, выведенного из работы в результате  нарушения",
+								"type" : "text",
+								"placeholder" : ""
+							},
+							{
+								"name" : "potrebiteli",
+								"id" : "userCnt",
+								"caption" : "Общее количество пострадавших потребителей",
+								"type" : "text",
+								"placeholder" : ""
+							},
+							{
+								"name" : "org",
+								"id" : "org",
+								"caption" : "Задействованные силы и средства предприятия, которое устраняет технологическое нарушение (наименование предприятия).",
+								"type" : "text",
+								"placeholder" : ""
+							},
+							{
+								"name" : "bossOfWork",
+								"id" : "bossOfWork",
+								"caption" : "ФИО и должность руководителя работ по устранению нарушения",
+								"type" : "text",
+								"placeholder" : "Иванов Пётр Сергеевич, главный инженер"
+							},
+							{
+								"name" : "bossOfCity",
+								"id" : "bossOfCity",
+								"caption" : "ФИО руководителя муниципалитета, контролирующего устранение",
+								"type" : "text",
+								"placeholder" : "Сидоров Антон Ильич"
+							},
+							{
+								"name" : "goodNewsMen",
+								"id" : "goodNewsMen",
+								"caption" : "ФИО и должность от кого поступила информация о предположительном времени и дате полного восстановления нормального режима работы",
+								"type" : "text",
+								"placeholder" : "Иванов Пётр Сергеевич, главный инженер"
+							},
+							{
+								"name" : "tempereture",
+								"id" : "tempereture",
+								"caption" : "Температура наружного воздуха, С",
+								"type" : "text",
+								"placeholder" : "-5"
+							},
+							{
+								"name" : "incidentInfoDate",
+								"id" : "incidentInfoDate",
+								"caption" : "Время и дата передачи сообщения о технологическом нарушении",
+								"type" : "text",
+								"placeholder" : "25.01.2018 09:45",
+								 "datetimepicker" : {
+									 "timeFormat": "hh:mm tt",
+									 "regional":"ru"									 
+								  }							
+							},
+							{
+								"name" : "badNewsMen",
+								"id" : "badNewsMen",
+								"caption" : "ФИО, должность лица, несвоевременно передавшего в информацию о нарушении",
+								"type" : "text",
+								"placeholder" : "Петров Иван Сергеевич, главный инженер"
+							}
+						]};
+//		$("#mainForm #container").dform(elements1);			
+		$("#mainForm ").show('');
+		$("#mainList").hide('');
+		$("#mainForm ").html('');
+		$("#mainForm ").dform(elements1);
+		$("#ui-datepicker-div").on('click', function (event) {UI.Keep()});
+		$(".ui-corner-all, .ui-datepicker-calendar, .ui-timepicker-div, .ui-datepicker-buttonpane, .ui-widget-content").on('click', function (event) {UI.Keep()});
+//		$(".ui-corner-all").on('click', function (event) {UI.Keep()});
+//		$(".ui-datepicker").on('click', function (event) {UI.Keep()});
+		$(".ui-autocomplete").on('click', function (event) {UI.Keep()});
+		//this.formSended = false;
+		$("#formSubmit").off('click');
+		$("#formSubmit").on('click' , function (event) {
+			//event.stopPropagation();
+			//console.log(FORM.formSended);	
+//			if(FORM.formSended == false){
+				UI.pleaseWait();			
+				var formData = $("#mainForm ").serializeJSON();
+				$.post("/spddl/", {type:'addForm', data:formData}, function(str)
+					{
+					UI.pleaseWait();			
+
+					console.log(str); 			
+					if(str == 1){
+							UI.showMessage('info', 'Оперативное донесение доставлено');
+							//FORM.formSended = true;
+							//console.log('good');
+							//console.log(FORM.formSended);
+//							$("#formSubmit").on('click',  function (event) {console.log('double');});
+							
+							console.log(formData); 			
+						} else {
+							UI.showMessage('error', 'Произошла ошибка в процессе доставки оперативного донесения');												
+						}				
+				});
+//			}
+		});
+	}*/
+}

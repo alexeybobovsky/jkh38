@@ -1,0 +1,23 @@
+php_flag session.use_only_cookies On
+php_flag session.use_trans_sid Off
+
+
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value Content-Type text/html
+php_value register_globals On
+php_value max_input_vars 5000
+php_value memory_limit 500M
+php_value short_open_tag 1
+
+RewriteEngine on
+#RewriteOptions inherit
+#RewriteBase /
+#RewriteCond	%{REQUEST_FILENAME}	!-f
+#RewriteCond	%{REQUEST_FILENAME}	!-d
+#RewriteRule ^(.*)/$ index.php?uri=/$1 [QSA,L]
+
+RewriteOptions inherit
+RewriteCond	%{REQUEST_FILENAME}	!-f
+RewriteCond	%{REQUEST_FILENAME}	!-d
+RewriteRule	^(.*)$	index.php?uri=/$1 [QSA,L]

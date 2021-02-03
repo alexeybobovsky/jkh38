@@ -1,0 +1,312 @@
+/***********************************************/
+/* HTML tag styles                             */
+/***********************************************/
+
+body{
+	font-family: "Times New Roman", Times, serif;
+	color: #000000;
+	line-height: 1.166;
+	margin: 0px;
+	padding: 0px;
+	font-size: 14pt;
+}
+
+a:link, a:visited, a:hover {
+	color: #006699;
+	text-decoration: none;
+	{*font-size: 14pt;*}
+}
+
+a:hover {
+	text-decoration: underline;
+	{*font-size: 14pt;*}
+}
+
+/* overrides decoration from previous rule for hovered links */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Arial,sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1{
+ font-family: Verdana,Arial,sans-serif;
+ font-size: 20px;
+ color: #334d55;
+}
+
+h2{
+	font-size: 18px;
+	color: #006699;
+	left: 10px;
+	padding-left: 10px;
+}
+
+h3{
+ font-size: 16px;
+ color: #334d55;
+}
+
+h4{
+ font-size: 100%;
+ font-weight: normal;
+ color: #333333;
+}
+
+h5{
+ font-size: 100%;
+ color: #334d55;
+}
+
+ul{
+ list-style-type: square;
+}
+
+ul ul{
+ list-style-type: disc;
+}
+
+ul ul ul{
+ list-style-type: none;
+}
+
+label{
+ font: normal 100% Arial, sans-serif;
+ color: #334d55;
+}
+
+small {
+	color: #000;
+	text-decoration: none;
+	font-size: 12px;
+}
+/*
+td{
+	color: #334d55;
+	border: 1px solid #000000;
+}
+*/
+
+/***********************************************/
+/* Layout Divs                                 */
+/***********************************************/
+.admin{
+	color: black;
+	/*background-color: #FF0000;*/
+	border: 1px solid #FF0000;
+}
+.report{
+	color: black;
+	border: 1px solid #000000;
+}
+.list_th_sel{
+	clear: both;
+	border: 1px solid #ffcccc;
+	background-color: #eeeeee;
+	color: #334d55;
+	font-weight: bold;
+	font-size: 80%;
+}
+.list_th{
+	clear: both;
+	border: 1px dashed #cccccc;
+	background-color: #eeeeee;
+	color: #334d55;
+	font-weight: bold;
+	font-size: 14px;
+	/*padding: 10px 10px 10px 10px;*/
+	/*margin-top: -1px;*/
+}
+.list_th_norm{
+	clear: both;
+	/*border: 1px dashed #cccccc;
+	background-color: #eeeeee;*/
+	color: #334d55;
+	font-weight: bold;
+	font-size: 100%;
+	/*padding: 10px 10px 10px 10px;*/
+	/*margin-top: -1px;*/
+}
+.list_th_light{
+	clear: both;
+	border: 1px dashed #cccccc;
+	background-color: #eeeeee;
+	color: #334d55;
+	font-size: 80%;
+}
+.list_td{
+	clear: both;
+	font-size: 14px;
+	border: 1px dotted #cccccc;
+	/*background-color: #eeeeee;*/
+	color: #334d55;
+	/*padding: 10px 10px 10px 10px;*/
+	/*margin-top: -1px;*/
+	}
+.list_td a:link, a:visited{
+	color: #006699;
+	font-size: 14px;
+	text-decoration: none;
+	}
+.list_td a :hover {
+	color: #006699;
+	font-size: 14px;
+	text-decoration: underline;
+	}
+.list_td_norm{
+	clear: both;
+	font-size: 100%;
+	/*border: 1px dotted #cccccc;
+	/*background-color: #eeeeee;*/
+	color: #334d55;
+	/*padding: 10px 10px 10px 10px;*/
+	/*margin-top: -1px;*/
+}
+.list_th_small{
+	/*clear: both;*/
+	border: 1px dashed #cccccc;
+	background-color: #eeeeee;
+	color: #334d55;
+	/*font-weight: bold;*/
+	font-size: 80%;
+	padding: 1px 1px 1px 1px;
+	margin-top: -1px;
+}
+.list_td_small{
+	/*clear: both;*/
+	font-size: 70%;
+	border: 1px dotted #cccccc;
+	/*background-color: #eeeeee;*/
+	color: #334d55;
+	/*padding: 10px 10px 10px 10px;*/
+	margin-top: -1px;
+}
+.list_td_sel{
+	clear: both;
+	font-size: 80%;
+	border: 1px solid #ffcccc;
+	color: #334d55;
+}
+.btnup{
+	clear: both;
+	font-size: 80%;
+	color: #000000;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #666666;
+	border-left-color: #CCCCCC;
+	font-weight: bold;
+	border-bottom-style: solid;
+	border-bottom-color: #666666;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+
+}
+.btndown{
+	clear: both;
+	font-size: 80%;
+	color: #000000;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #CCCCCC;
+	border-left-color: #666666;
+	font-weight: bold;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	border-top-style: solid;
+	border-top-color: #666666;
+
+}
+.txt_small{
+	/*clear: both;*/
+	color: #334d55;
+	/*font-weight: bold;*/
+	font-size: 70%;
+}
+.input2{
+	/*font-size: 110%;*/
+	background-color: #FFFFFF;
+    color: #334d55;
+	font-size: 14px;
+}
+.cellup {
+	border-top: 1px dashed #999999;
+	border-right: 1px #999999;
+	border-bottom: 1px none #999999;
+	border-left: 1px none #999999;
+
+}
+.content {
+	background-color: #FFFFFF;
+	border-top: 1px #CCCCCC;
+	border-right: 1px dashed #CCCCCC;
+	border-bottom: 1px dashed #CCCCCC;
+	border-left: 1px dashed #CCCCCC;
+	margin-left: 15px;
+	position: relative;
+
+
+
+
+
+}
+.cellleft {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-left-style: dashed;
+	border-left-color: #CCCCCC;
+	border-top-style: dashed;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+
+}
+.cellright {
+	border-top: 1px dashed #CCCCCC;
+	border-right: 1px dashed #CCCCCC;
+	border-bottom: 1px #CCCCCC;
+	border-left: 1px #CCCCCC;
+}
+
+.zebra{
+		background:#D6F5FE;
+		clear: both;
+		font-size: 80%;
+		border: 1px dotted #cccccc;
+		}
+.MainBorder {
+	border: thin solid #CCCCCC;
+}
+.Comment{
+	color: #999999;
+}
+/*td {font-size:11px;color:#000000;font-family:verdana,tahoma,arial}*/
+
+/* HEAD */
+.headYear {color:#FFFFFF;font-size:15px;font-weight:bold}
+.headMonth {font-size:13px;color:#F8981D;font-weight:bold}
+.headDay {color:#FFFFFF;font-weight:bold}
+
+/* TEXT */
+.textDay {color:#999999}
+.textDayOn {color:#FFFFFF;background:#F79822}
+.textDaySel {color:#FFFFFF;	border: 2px solid #F79822;}
+.textHidden {color:#7DBB12;font-size:11pt;font-weight:bold}
+
+/* LINK */
+a.linkYear {color:#FFFFFF;font-size:11pt;font-weight:bold;text-decoration:none}
+.textDay a {color:#666666;text-decoration:none}
+.textDay a:hover{color:#666666;text-decoration:underline}
+.textDayOn a {color:#FFFFFF;text-decoration:none}
+.textDayOn a:hover{color:#FFFFFF;text-decoration:underline}

@@ -1,0 +1,15 @@
+#act{
+
+}
+#act div {
+/*	left: 100px;*/
+	border: 1px solid #000;
+	text-align: center;
+	width: 300px;
+	padding: 10px;
+/*	top:200px;*/
+	position: relative;
+/*	background-color: #FFF;*/
+	color: #333;
+	font-weight: bold
+}
