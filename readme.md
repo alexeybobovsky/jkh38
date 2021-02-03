@@ -1,6 +1,6 @@
-[img1]: https://github.com/alexeybobovsky/jkh38/blob/master/img/scr_1.jpg ""
-[img2]: https://github.com/alexeybobovsky/jkh38/blob/master/img/scr_2.jpg ""
-[img3]: https://github.com/alexeybobovsky/jkh38/blob/master/img/scr_3.jpg ""
+[img1]: https://github.com/alexeybobovsky/jkh38/blob/master/img/scr_1.PNG ""
+[img2]: https://github.com/alexeybobovsky/jkh38/blob/master/img/scr_2.PNG ""
+[img3]: https://github.com/alexeybobovsky/jkh38/blob/master/img/scr_3.PNG ""
 
 # Проект ЖКХ-38  - мониторинг и отчётность для министерства ЖКЖ Иркутской Области (разработка 2019 года).
 
